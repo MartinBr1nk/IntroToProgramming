@@ -1,8 +1,14 @@
 total = 0
-print("This Is Journey to the Path of Glory.")
-nameplease= input("Young Traveller what is your name ")
-confirm = input("you have chosen the name", nameplease,"is this correct?")
-if confirm == "yes":
-    print("you have chosen the name of", nameplease)
-elif nameplease == "no":
-    nameplease = input("please reenter your name")
+import time, random
+def print_slow(str):
+    for letter in str:
+        print(letter, end = "")
+        time.sleep(random.uniform(0.1))
+
+
+print("Terminal Buddy - Jan 24th 1963")
+nameplease= input("Input Agent Name ")
+print("Hello", nameplease, "You have been granted the highest level of authorisation  ") 
+incomingmessage = input("incoming message from UNKNOWN - Origin HOMEBASE, REDACTED. Accept?")
+if incomingmessage == "YES":
+    print_slow("Connection Secured. This is Captain REDACTED. We regret to inform you that your base has been comprimised. Please follow the measures in the next transmission. CONNECTION TERMINATED")
