@@ -1,6 +1,7 @@
 ﻿total = 0
 life = 1
 floor = 8
+
 cropamount = 0
 
 
@@ -8,7 +9,7 @@ import time, random
 def print_slow(str):
     for letter in str:
         print(letter, end = "")
-        time.sleep(random.uniform(0.1, 0.05))
+        time.sleep(random.uniform(0.01, 0.05))
 
 def print_faster(str):
     for letter in str:
@@ -89,7 +90,7 @@ print_faster(r"""
 
 """)
 
-print("Terminal Buddy - Jan 24th 1963")
+print("Terminal Assistant -Last Updated- Jan 24th 1963")
 nameplease= input("Input Agent Name ")
 print("Hello", nameplease, "You have been granted the highest level of authorisation  ") 
 incomingmessage = input("incoming message from UNKNOWN - Origin HOMEBASE, REDACTED. Accept? Y/N")
@@ -113,14 +114,18 @@ while life == 1:
                     if logonterminal == "Y":
                         print_slow("Hello", nameplease, "Welcome Back to the terminal. What Would You Like to Do?")
                         print(pickadoor)
+        
         if whichone == "2":
-            print("you go to the open space which has lights on 24/7 to simulate daytime, there are different crops available to harvest: Corn, Potatoes, Carrot, Lettuce, Cabbage, Tomatoes, Pumpkins, Watermelon, Onions and Strawberries ")
-            harvestmoon = input("what would you like to harvest? (0 to end) ")
+            print("you go to the open space which has lights on 24/7 to simulate daytime, there are different crops available to harvest: Corn, Potato, Carrot, Lettuce, Cabbage, Tomato, Pumpkin, Watermelon, Onion and Strawberry ")
+            harvestmoon = input("what would you like to harvest? (0 to end) ").upper()
             while harvestmoon != "0": 
-                if harvestmoon =="corn" or "Corn" or "potatoes" or "Potatoes" or "lettuce" or "Lettuce" or "cabbage" or "Cabbage" or "Tomato" or "tomato" or "pumpkin" or "Pumpkin" or "watermelon" or "Watermelon" or "onion" or "Onion" or "Strawberries" or "Strawberries":
+                if harvestmoon =="CORN" or harvestmoon =="POTATO" or  harvestmoon == "LETTUCE" or harvestmoon == "CABBAGE" or harvestmoon == "TOMATO" or harvestmoon == "PUMPKIN" or harvestmoon == "WATERMELON" or harvestmoon == "ONION" or harvestmoon == "STRAWBERRIES":
                     print("you have succesfully harvested a crop")
-                    cropamount = cropamount + 1
+                    cropamount = cropamount =+ 1
                     harvestmoon = input("keep harvesting or press 0 to stop")
+                    print(harvestmoon)
+                    print("you have successfully harvested", cropamount,"crops")
                 else:
                     print("invalid data type. You have harvested nothing")
-                print("you have successfully harvested", cropamount,"crops")
+                    print("total amount of crops you have harvested is", cropamount)
+                    harvestmoon = input("keep harvesting or press 0 to stop")
