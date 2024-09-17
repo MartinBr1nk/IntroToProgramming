@@ -17,7 +17,8 @@ def print_faster(str):
 
 
 
-    print_faster(r""" 
+   
+print_faster(r""" 
 ┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
 │                                                                                                                              │
 │                                                                                                                              │
@@ -115,5 +116,11 @@ while life == 1:
         if whichone == "2":
             print("you go to the open space which has lights on 24/7 to simulate daytime, there are different crops available to harvest: Corn, Potatoes, Carrot, Lettuce, Cabbage, Tomatoes, Pumpkins, Watermelon, Onions and Strawberries ")
             harvestmoon = input("what would you like to harvest? (0 to end) ")
-            while harvestmoon != "0":
-                print("you have succesfully harvested a crop")
+            while harvestmoon != "0": 
+                if harvestmoon =="corn" or "Corn" or "potatoes" or "Potatoes" or "lettuce" or "Lettuce" or "cabbage" or "Cabbage" or "Tomato" or "tomato" or "pumpkin" or "Pumpkin" or "watermelon" or "Watermelon" or "onion" or "Onion" or "Strawberries" or "Strawberries":
+                    print("you have succesfully harvested a crop")
+                    cropamount = cropamount + 1
+                    harvestmoon = input("keep harvesting or press 0 to stop")
+                else:
+                    print("invalid data type. You have harvested nothing")
+                print("you have successfully harvested", cropamount,"crops")
