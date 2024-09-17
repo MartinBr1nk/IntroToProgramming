@@ -1,6 +1,9 @@
 ﻿total = 0
 life = 1
 floor = 8
+cropamount = 0
+
+
 import time, random
 def print_slow(str):
     for letter in str:
@@ -110,4 +113,7 @@ while life == 1:
                         print_slow("Hello", nameplease, "Welcome Back to the terminal. What Would You Like to Do?")
                         print(pickadoor)
         if whichone == "2":
-            print("you go to the open space which has lights on 24/7 to simulate daytime, there are different crops available to harvest: Corn, Potatoes, Carrot, Lettuce, Cabbage, Tomatoes, Pumpkins, Watermelon, Onions, Strawberries ")
+            print("you go to the open space which has lights on 24/7 to simulate daytime, there are different crops available to harvest: Corn, Potatoes, Carrot, Lettuce, Cabbage, Tomatoes, Pumpkins, Watermelon, Onions and Strawberries ")
+            harvestmoon = input("what would you like to harvest? (0 to end) ")
+            while harvestmoon != "0":
+                print("you have succesfully harvested a crop")
