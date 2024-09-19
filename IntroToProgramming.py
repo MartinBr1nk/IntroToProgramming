@@ -20,8 +20,8 @@ def print_faster(str):
 lockallthedoorsmaybewellneverfindit = themasterplan.lockdownlogo
 singitloud = themasterplan.masterplan
 terminalbootup  = achivements.doster
-
 terminalbootup
+
 
 
 print("Terminal Assistant -Last Updated- Jan 24th 1963")
@@ -66,8 +66,8 @@ while life == 1:
                                 | ::::::::::::::[]  ::: |
                                 |   -----------     ::: |
                                 `-----------------------'""")
-                    logonterminal = input("will you log onto the terminal?")
-                    if logonterminal == "Y":
+                    logonterminal = input("will you log onto the terminal?").upper()
+                    if logonterminal == "YES":
                         print_slow("Hello", nameplease, "Welcome Back to the terminal. What Would You Like to Do?")
                         print(pickadoor)
             elif pickadoor == "1": #Creator Decided to Put the masterplan by oasis in as the song you sing 
@@ -85,7 +85,7 @@ while life == 1:
             print("you go to the open space which has lights on 24/7 to simulate daytime, there are different crops available to harvest: Corn, Potato, Carrot, Lettuce, Cabbage, Tomato, Pumpkin, Watermelon, Onion and Strawberry ")
             harvestmoon = input("what would you like to harvest? (0 to end) ").upper()
             while harvestmoon != "0": 
-                if harvestmoon =="CORN" or harvestmoon =="POTATO" or  harvestmoon == "LETTUCE" or harvestmoon == "CABBAGE" or harvestmoon == "TOMATO" or harvestmoon == "PUMPKIN" or harvestmoon == "WATERMELON" or harvestmoon == "ONION" or harvestmoon == "STRAWBERRIES":
+                if harvestmoon =="CORN" or harvestmoon =="POTATO" or  harvestmoon == "LETTUCE" or harvestmoon == "CABBAGE" or harvestmoon == "TOMATO" or harvestmoon == "PUMPKIN" or harvestmoon == "WATERMELON" or harvestmoon == "ONION" or harvestmoon == "STRAWBERRY"  or harvestmoon == "CARROT":
                     print("you have succesfully harvested a crop")
                     cropamount = cropamount + 1
                     harvestmoon = input("keep harvesting or press 0 to stop")
@@ -103,4 +103,12 @@ while life == 1:
                 lockdownprotocol = True
                 print_faster(lockallthedoorsmaybewellneverfindit)
 
-            lifeordeath = input("do you put on your respirator? it is a small device that will allow you to continue to be able to breathe. without it you could pass out ")
+            lifeordeath = input("do you put on your respirator? it is a small device that will allow you to continue to be able to breathe. without it you could pass out ").upper()
+            if lifeordeath == "YES":
+                print("you are now breathing independantly from the oxygen that is being released in the room. ")
+            elif lifeordeath == "NO":
+                print("you start to feel light headed and all of a sudden, pitch black. You have passed out and in the time you pass out the intruder has killed you.")
+                life=life -1
+                print_slow("Logging off - User Has Died")
+
+print("You Achieved, Coolname =", yougotacoolname , "singitloud = ",singitloudandproud)

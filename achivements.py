@@ -1,5 +1,5 @@
 ﻿#Achievements!
-singitloud = False
+singitloudandproud = False
 hungyforoxygen = False
 finishedthegame= False
 didthebrief = False
