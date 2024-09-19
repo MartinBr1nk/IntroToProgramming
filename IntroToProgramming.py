@@ -16,22 +16,24 @@ def print_faster(str):
         print(letter, end = "")
         time.sleep(random.uniform(0.001, 0.0005))
 
-
+singingachievement = achivements.singitloudandproud
+thecoolname = achivements.yougotacoolname
 lockallthedoorsmaybewellneverfindit = themasterplan.lockdownlogo
 singitloud = themasterplan.masterplan
 terminalbootup  = achivements.doster
 terminalbootup
-
+easteregginoctober = achivements.creatorwithnameofuser
 
 
 print("Terminal Assistant -Last Updated- Jan 24th 1963")
 nameplease= input("Input Agent Name ").upper()
 if nameplease =="MARTIN":
-    yougotacoolname = True
+    thecoolname = True
     print("cool name dude!")
-    print(yougotacoolname)
+    print(easteregginoctober)
+    print(thecoolname)
 print("Hello", nameplease, "You have been granted the highest level of authorisation  ") 
-incomingmessage = input("incoming message from UNKNOWN - Origin HOMEBASE, REDACTED. Accept? Y/N").upper()
+incomingmessage = input("incoming message from UNKNOWN - Origin HOMEBASE, REDACTED. Accept? Y/N (OR press enter to skip dialogue)").upper()
 if incomingmessage == "Y":
         print_slow("Connection Secured. This is Captain REDACTED. We regret to inform you that your base has been comprimised. Please follow the measures in the next transmission. CONNECTION TERMINATED ")
 elif incomingmessage == "N":
@@ -45,6 +47,7 @@ while life == 1:
             if pickadoor == "3": #you go down a floor and then turn on a computer
                 print("you have descended doors down to Floor 9. You started on the 8th Floor and now you have descended down the steps and into the new floor with 4 rooms. You check the room assigned in the terminal and look into it, There is nothing but a New Terminal with Red Tape Keeping the Screen in Place. There is a Sticky Note on the Desk")
                 floor = floor + 1
+                print("you are on floor", floor)
                 readnote = input("do you read the note?")
                 if readnote == "yes":
                     print("The note says - This Terminal Has Passed Health And Safety tests")
@@ -76,9 +79,10 @@ while life == 1:
                 if sing =="yes":
                     print("so you have decided to sing! so you sing the masterplan by oasis and you say:")
                     print_slow(singitloud)
+                    singingachievement= True
             elif sing =="no":
                 print("well. you are no fun.")
-                print("mr boring man continues to walk down until he reaches the corridor and then see")
+                print("mr boring man continues to walk down until he reaches the corridor and then sees that he has entered the weapons room. He puts the keycard to the door and as he has been given the highest clearance is through.")
                 youdidntsing = True
         
         if whichone == "2": #farming! coming probably not soon
@@ -88,13 +92,13 @@ while life == 1:
                 if harvestmoon =="CORN" or harvestmoon =="POTATO" or  harvestmoon == "LETTUCE" or harvestmoon == "CABBAGE" or harvestmoon == "TOMATO" or harvestmoon == "PUMPKIN" or harvestmoon == "WATERMELON" or harvestmoon == "ONION" or harvestmoon == "STRAWBERRY"  or harvestmoon == "CARROT":
                     print("you have succesfully harvested a crop")
                     cropamount = cropamount + 1
-                    harvestmoon = input("keep harvesting or press 0 to stop")
+                    harvestmoon = input("keep harvesting or press 0 to stop").upper()
                     print(harvestmoon)
                     print("you have successfully harvested", cropamount,"crops")
                 else:
                     print("invalid data type. You have harvested nothing")
                     print("total amount of crops you have harvested is", cropamount)
-                    harvestmoon = input("keep harvesting or press 0 to stop")
+                    harvestmoon = input("keep harvesting or press 0 to stop").upper()
 
         if whichone == "3": #lockdown protocol which so far doesnt do anything
             lockthatdown=input("Please Enter your Name to Initiate Lockdown Protocol").upper()
@@ -111,4 +115,4 @@ while life == 1:
                 life=life -1
                 print_slow("Logging off - User Has Died")
 
-print("You Achieved, Coolname =", yougotacoolname , "singitloud = ",singitloudandproud)
+print("You Achieved, Coolname =", thecoolname , "singitloud = ",singingachievement)
