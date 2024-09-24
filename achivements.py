@@ -5,6 +5,7 @@ finishedthegame= False
 didthebrief = False
 yougotacoolname = False
 youdidntsing = False
+weneedtogodeeper = False
 
 import time, random
 def print_slow(str):

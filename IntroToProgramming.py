@@ -23,7 +23,7 @@ singitloud = themasterplan.masterplan
 terminalbootup  = achivements.doster
 terminalbootup
 easteregginoctober = achivements.creatorwithnameofuser
-
+netherdidithoughtwedgodown = achivements.weneedtogodeeper
 
 print("Terminal Assistant -Last Updated- Jan 24th 1963")
 nameplease= input("Input Agent Name ").upper()
@@ -84,6 +84,22 @@ while life == 1:
                 print("well. you are no fun.")
                 print("mr boring man continues to walk down until he reaches the corridor and then sees that he has entered the weapons room. He puts the keycard to the door and as he has been given the highest clearance is through.")
                 youdidntsing = True
+            print("as you walk into the door you see that there is another set of stairs. you curiously walk down them but these are longer than the other sets of steps in this bunker. as you walk you see posters dating back to the 1940s and earlier. you finally descend all the steps and you are somewhere you have never been before since you have never had this high of clearance before.")
+            floor = floor + 1942
+            print("You are on an unknown floor. You try to see what floor you are at on the sign but it is too worn. The bunker looks like one of the stations of the london underground ")
+            iwantmymoneyback = input("do you go back upstairs or do you stay?").upper()
+            if iwantmymoneyback == "STAY":
+                print("You decide to not do this and go straight upstairs because this is not worth your time")
+                floor = floor - 1942
+                print("you are back on floor", floor)
+            elif iwantmymoneyback: 
+                print("so you decided to venture forth! you are not the coward i thought you would be. here you earned this little achievement my treat.")
+                netherdidithoughtwedgodown == True
+                print("as you walk past all the debris in this abandoned station-like immitation, you notice there seems to be a fellow worker sitting maybe taking a little nap ")
+                littledoyouknow = input("do you wake up our friend here?").upper()
+                while littledoyouknow != "YES":
+                    print("buddy you dont have a choice. Yes or no?")
+                    input = littledoyouknow("let me ask you one more time. wake him up. Yes. Or. No.")
         
         if whichone == "2": #farming! coming probably not soon
             print("you go to the open space which has lights on 24/7 to simulate daytime, there are different crops available to harvest: Corn, Potato, Carrot, Lettuce, Cabbage, Tomato, Pumpkin, Watermelon, Onion and Strawberry ")
