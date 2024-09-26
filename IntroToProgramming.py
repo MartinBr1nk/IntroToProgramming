@@ -43,7 +43,7 @@ if incomingmessage == "Y":
         print_slow("CONNECTION TERMINATED ")
 elif incomingmessage == "N":
         print("You hear a noise coming from above you. Curious you leave the secure room and investigate, An Intruder then with a machete beheads you and it is game over.")
-        life = 0
+        life = life - 1
 while life == 1:       
         print_slow("\nPlease Do the following in any order: \n") 
         print("1. Lock All The Doors 2. Harvest Crops 3. Initiate Oxygen Deprivation Protocol")
@@ -124,7 +124,7 @@ while life == 1:
                         print("you have now locked the doors properly.")
                         doors = doors + 1
         
-        if whichone == "2": #farming! coming probably not soon
+        if whichone == "2": #farming! DONE
             print("you go to the open space which has lights on 24/7. ")
             print("there are different crops available to harvest: ")
             print("Corn, Potato, Carrot, Lettuce")
@@ -151,7 +151,7 @@ while life == 1:
                     print("total amount of crops you have harvested is", cropamount)
                     harvestmoon = input("keep harvesting or press 0 to stop").upper()
 
-        if whichone == "3": #lockdown protocol which so far doesnt do anything
+        if whichone == "3": #lockdown protocol wif you dont put on the respirator you die
             lockthatdown=input("Please Enter your Name to Initiate Lockdown Protocol").upper()
             if lockthatdown == nameplease:
                 print("Oxygen Deprivation Protocol has Started.")
@@ -166,5 +166,32 @@ while life == 1:
                 print("You have passed out and in that time you have died.")
                 life=life -1
                 print_slow("Logging off - User Has Died")
+        elif whichone == "4":
+            print("you walk to the armory and decide you need a weapon")
+            willyoutakeaweapon = input("will you take a weapon from the armoury?").upper()
+            if willyoutakeaweapon == "YES":
+                pickaweapon = input("pick a number between 1 and 3!")
+                if pickaweapon == "1":
+                    print("Aha! You have a medival broadsword! It has the engravings - MB - Maybe someone of great importance and maybe not.")
+                elif pickaweapon =="2":
+                    print("you have an arm? Not of human origin but a microphone arm, it has a thick metal bottom which might be of great use")
+                elif pickaweapon == "3":
+                    print("you get a cricket bat! where are the zombies and fences to jump over.....")
+            print("as you are walking into your terminal you see a figure rush you")
+            fighthim = input("do you fight the figure?")
+            if fighthim == "yes" and pickaweapon == "1":
+                print("you behead the intruder and spill his guts out")
+            elif fighthim == "yes" and pickaweapon == "2":
+                print("he runs towards you at a speed, you then hit him")
+                print("he is then stone cold and you then finish the job")
+            elif fighthim == "yes" and pickaweapon == "3":
+                print("in true style you hit him repeatedly until he falls")
+                print("strange too because im sure i heard dont stop me now....")
+            elif fighthim == "no":
+                print("oh so your a pacifist? yeah no you're dead")
+                life = life - 1
+
+
 print_slow("Systems Shutting Down....... \n")
 print("You Achieved, Coolname =", thecoolname , "singitloud = ",singingachievement)
+
