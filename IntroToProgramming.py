@@ -5,6 +5,8 @@ lockdownprotocol = False
 cropamount = 0
 doors = 0
 taxesavoided = 0
+yougodown = False
+
 import time, random,achivements, themasterplan
 def print_slow(str):
     for letter in str:
@@ -24,6 +26,7 @@ terminalbootup  = achivements.doster
 terminalbootup
 easteregginoctober = achivements.creatorwithnameofuser
 netherdidithoughtwedgodown = achivements.weneedtogodeeper
+mykola = achivements.errorface
 
 print("Terminal Assistant -Last Updated- Jan 24th 1963")
 nameplease= input("Input Agent Name ").upper()
@@ -32,10 +35,13 @@ if nameplease =="MARTIN":
     print("cool name dude!")
     print(easteregginoctober)
     print(thecoolname)
+
+elif nameplease == "MYKOLA":
+    print(mykola)
 print("Hello",nameplease,"You have been given the highest level of authority")
 #inpput of accepting comms or not
 incomingmessage = input("incoming message - Origin HOMEBASE. Accept?").upper()
-if incomingmessage == "Y":
+if incomingmessage == "YES":
         print_slow("Connection Secured.")
         print_slow("Greetings Agent, This is Captain C.Stephens. ")
         print_slow("We regret to inform you that your base has been comprimised.") 
@@ -96,6 +102,8 @@ while life == 1:
                     iwantmymoneyback = input("do you go back upstairs or do you stay?").upper()
                     if iwantmymoneyback == "LEAVE":
                         print("You decide to not do this and go straight upstairs because this is not worth your time")
+                        yougodown = True
+                        print(yougodown)
                         floor = floor - 1942
                         print("you are back on floor", floor)
                     elif iwantmymoneyback == "STAY": 
@@ -107,6 +115,14 @@ while life == 1:
                         while littledoyouknow != "YES":
                             print("You dont have a choice. You said,",littledoyouknow,)
                             littledidyouknow = input("let me ask you one more time. wake him up. Yes. Or. No.").upper()
+                        print("He jolts awake in a cold sweat.")
+                        print("he seems rattled about where he is. ")
+                        print("there is also a lot of blood on the floor")
+                        print("he tells you things, interesting things. rouses")
+                        print("he also tells you that his favourite flavour of")
+                        print("oh wait no hes dead.")
+
+
 
                 elif pickadoor == "2": #door 2
                     print("you enter this room which is a very small room. ")
@@ -151,14 +167,14 @@ while life == 1:
                     print("total amount of crops you have harvested is", cropamount)
                     harvestmoon = input("keep harvesting or press 0 to stop").upper()
 
-        if whichone == "3": #lockdown protocol wif you dont put on the respirator you die
+        if whichone == "3": #lockdown protocol if you dont put on the respirator you die
             lockthatdown=input("Please Enter your Name to Initiate Lockdown Protocol").upper()
             if lockthatdown == nameplease:
                 print("Oxygen Deprivation Protocol has Started.")
                 lockdownprotocol = True
                 print_faster(lockallthedoorsmaybewellneverfindit)
 
-            lifeordeath = input("do you put on your respirator?").upper()
+            lifeordeath = input("do you put on your respirator?").upper() #respirator
             if lifeordeath == "YES":
                 print("you are now breathing from the respirator. ")
             elif lifeordeath == "NO":
@@ -166,6 +182,7 @@ while life == 1:
                 print("You have passed out and in that time you have died.")
                 life=life -1
                 print_slow("Logging off - User Has Died")
+        
         elif whichone == "4":
             print("you walk to the armory and decide you need a weapon")
             willyoutakeaweapon = input("will you take a weapon from the armoury?").upper()
@@ -197,6 +214,28 @@ while life == 1:
             if taxesavoided == 10:
                 print("authorities have been notified and you can no longer use this terminal.")
                 break
+
+        if whichone == "6" and yougodown ==False:
+            print("welcome to the message hub")
+            print("you have no new messages")
+        
+        elif whichone == "6" and yougodown == True:
+            print("you have a new message! Message from 2 mins ago.")
+            readit =input("will you read the message?")
+            if readit == "yes":
+                print("hello,",nameplease,"I need your help and it is urgent.")
+                print("the government is making a rouse. i promise you this.")
+                print("the problem is that we are being intruded by soldiers")
+                print("soldiers which are hired by the government!")
+                print("go down to the bottom of those steps. ")
+                print("there you can escape. godspeed",nameplease,".")
+
+        if whichone == "7":
+            print("lets play a magic game!")
+
+                
+        
+
 
 print_slow("Systems Shutting Down....... \n")
 print("You Achieved, Coolname =", thecoolname , "singitloud = ",singingachievement)
