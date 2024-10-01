@@ -4,7 +4,7 @@ floor = 8
 lockdownprotocol = False
 cropamount = 0
 doors = 0
-
+taxesavoided = 0
 import time, random,achivements, themasterplan
 def print_slow(str):
     for letter in str:
@@ -190,7 +190,13 @@ while life == 1:
             elif fighthim == "no":
                 print("oh so your a pacifist? yeah no you're dead")
                 life = life - 1
-
+        
+        if whichone == "5":
+            print("taxes avoided")
+            taxesavoided = taxesavoided + 1
+            if taxesavoided == 10:
+                print("authorities have been notified and you can no longer use this terminal.")
+                break
 
 print_slow("Systems Shutting Down....... \n")
 print("You Achieved, Coolname =", thecoolname , "singitloud = ",singingachievement)
