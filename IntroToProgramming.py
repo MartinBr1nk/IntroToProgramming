@@ -27,6 +27,7 @@ terminalbootup
 easteregginoctober = achivements.creatorwithnameofuser
 netherdidithoughtwedgodown = achivements.weneedtogodeeper
 mykola = achivements.errorface
+tunnel = achivements.underground
 
 print("Terminal Assistant -Last Updated- Jan 24th 1963")
 nameplease= input("Input Agent Name ").upper()
@@ -37,7 +38,8 @@ if nameplease =="MARTIN":
     print(thecoolname)
 
 elif nameplease == "MYKOLA":
-    print(mykola)
+    print(mykola) #if mykola plays, a photo of a parasaurolophus appears with his head on it.
+
 print("Hello",nameplease,"You have been given the highest level of authority")
 #inpput of accepting comms or not
 incomingmessage = input("incoming message - Origin HOMEBASE. Accept?").upper()
@@ -101,16 +103,18 @@ while life == 1:
                     print("The room looks like a train station ")
                     iwantmymoneyback = input("do you go back upstairs or do you stay?").upper()
                     if iwantmymoneyback == "LEAVE":
-                        print("You decide to not do this and go straight upstairs because this is not worth your time")
+                        print("You decide to not do this and go upstairs because this is not worth your time")
                         yougodown = True
                         print(yougodown)
                         floor = floor - 1942
                         print("you are back on floor", floor)
                     elif iwantmymoneyback == "STAY": 
-                        print("so you decided to venture forth! you are not the coward i thought you would be. here you earned this little achievement my treat.")
+                        print("so you decided to venture forth!") 
+                        print("you are not the coward i thought you would be.")
+                        print("here you earned this achievement my treat.")
                         netherdidithoughtwedgodown == True
-                        print("as you walk past all the debris in this abandoned station-like immitation.")
-                        print("you notice there seems to be a fellow worker sitting.")
+                        print("as you walk past this abandoned station")
+                        print("you notice there seems to be a worker sitting.")
                         littledoyouknow = input("do you wake him up?").upper()
                         while littledoyouknow != "YES":
                             print("You dont have a choice. You said,",littledoyouknow,)
@@ -121,6 +125,24 @@ while life == 1:
                         print("he tells you things, interesting things. rouses")
                         print("he also tells you that his favourite flavour of")
                         print("oh wait no hes dead.")
+                        print("you then walk through more. you see a carriage")
+                        geton = input("get in carriage and go?").upper()
+                        if geton == "YES":
+                            print("and so you get on and flick the lever but")
+                            print("no movement! you get off again")
+                            print("you decide to look around. you see a PSU.")
+                            turnon = input("turn on the PSU?").upper()
+                            if turnon == "YES":
+                                print("BOOM ITS ON!")
+                                print("you get back into the carriage and go")
+                                print_slow("\n Weeeeeeeeeeeeeeeeeeeeeeeeeeeee \n")
+                                print("and you are at your destination!")
+                                print("it is this old midpoint between stations")
+                                print_faster(tunnel)
+                        if geton == "NO":
+                            print("okay then, you die because")
+                            print("you dont want to play my game!")
+                            life = life - 1
 
 
 
@@ -173,15 +195,18 @@ while life == 1:
                 print("Oxygen Deprivation Protocol has Started.")
                 lockdownprotocol = True
                 print_faster(lockallthedoorsmaybewellneverfindit)
+            elif lockthatdown != nameplease:
+                print("Lockdown cancelled.")
 
-            lifeordeath = input("do you put on your respirator?").upper() #respirator
-            if lifeordeath == "YES":
-                print("you are now breathing from the respirator. ")
-            elif lifeordeath == "NO":
-                print("you start to feel light headed and suddenly, nothing.") 
-                print("You have passed out and in that time you have died.")
-                life=life -1
-                print_slow("Logging off - User Has Died")
+            if lockdownprotocol == True:
+                lifeordeath = input("do you put on your respirator?").upper() #respirator
+                if lifeordeath == "YES":
+                    print("you are now breathing from the respirator. ")
+                elif lifeordeath == "NO":
+                    print("you start to feel light headed and suddenly, nothing.") 
+                    print("You have passed out and in that time you have died.")
+                    life=life -1
+                    print_slow("Logging off - User Has Died")
         
         elif whichone == "4":
             print("you walk to the armory and decide you need a weapon")
@@ -241,8 +266,8 @@ while life == 1:
                 elif putanumberin < higherorlower:
                     print("too low!")
                     putanumberin = int(input("please guess again"))
-                elif putanumberin == higherorlower:
-                    print("you win!")
+            if putanumberin == higherorlower:
+                 print("you win!")
         
 
 
