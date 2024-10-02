@@ -7,6 +7,9 @@ doors = 0
 taxesavoided = 0
 yougodown = False
 
+door2 = False
+door3 = False
+
 import time, random,achivements, themasterplan
 def print_slow(str):
     for letter in str:
@@ -31,6 +34,11 @@ tunnel = achivements.underground
 
 print("Terminal Assistant -Last Updated- Jan 24th 1963")
 nameplease= input("Input Agent Name ").upper()
+
+if nameplease =="":
+    nameplease = "USER"
+    print("no name inputted. USER Is Default Name")
+
 if nameplease =="MARTIN":
     thecoolname = True
     print("cool name dude!")
@@ -43,15 +51,22 @@ elif nameplease == "MYKOLA":
 print("Hello",nameplease,"You have been given the highest level of authority")
 #inpput of accepting comms or not
 incomingmessage = input("incoming message - Origin HOMEBASE. Accept?").upper()
-if incomingmessage == "YES":
-        print_slow("Connection Secured.")
-        print_slow("Greetings Agent, This is Captain C.Stephens. ")
-        print_slow("We regret to inform you that your base has been comprimised.") 
-        print_slow("Please follow the measures in the next transmission. ")
-        print_slow("CONNECTION TERMINATED ")
-elif incomingmessage == "N":
-        print("You hear a noise coming from above you. Curious you leave the secure room and investigate, An Intruder then with a machete beheads you and it is game over.")
-        life = life - 1
+message_loop = True
+while message_loop:
+    if incomingmessage == "YES":
+            message_loop = False
+            print_slow("Connection Secured.")
+            print_slow("Greetings Agent, This is Captain C.Stephens. ")
+            print_slow("We regret to inform you that your base has been comprimised.") 
+            print_slow("Please follow the measures in the next transmission. ")
+            print_slow("CONNECTION TERMINATED ")
+    elif incomingmessage == "NO":
+            message_loop = False
+            print("You hear a noise coming from above you. Curious you leave the secure room and investigate, An Intruder then with a machete beheads you and it is game over.")
+            life = life - 1
+    else:
+        print("input invalid dummy")
+        incomingmessage = input("Accept or Deny the Intercom?").upper()
 while life == 1:       
         print_slow("\nPlease Do the following in any order: \n") 
         print("1. Lock All The Doors 2. Harvest Crops 3. Initiate Oxygen Deprivation Protocol")
@@ -60,8 +75,10 @@ while life == 1:
         if whichone == "1":
             while doors != 3:
                 pickadoor = input("what do you check first? Door 1, Door 2 or Door 3") #Prompt asking you which floor to go to
-            
-                if pickadoor == "3": #you go down a floor and then turn on a computer
+                if pickadoor == "3" and door3 == True:
+                    print("you cannot go here!")
+
+                elif pickadoor == "3" and door3 == False: #you go down a floor and then turn on a computer
                     print("you have descended doors down to Floor 9")  
                     print("You check the room assigned in the terminal and look into it. ")
                     print("There is nothing but a New Terminal with Red Tape Keeping the Screen in Place. ")
@@ -74,6 +91,7 @@ while life == 1:
                     print("You Check If the other doors are locked which they are. This allows you to continue to do your task.")
                     floor = floor + 1
                     doors = doors + 1
+                    door3 = True
                     print("you are on floor", floor)
                     readnote = input("do you read the note?")
                     if readnote == "yes":
@@ -90,7 +108,7 @@ while life == 1:
                         print("so you have decided to sing! so you sing the masterplan by oasis and you say:")
                         print_slow(singitloud)
                         singingachievement= True
-                    elif sing =="no":
+                    elif sing =="no" or sing =="":
                         print("well. you are no fun.")
                         print("mr boring man continues to walk down the hall.") 
                         print("he then sees that there is only one door which is locked. ")
@@ -102,12 +120,13 @@ while life == 1:
                     print("You are on an unknown floor. You try to see what floor you are at on the sign but it is illegible. ")
                     print("The room looks like a train station ")
                     iwantmymoneyback = input("do you go back upstairs or do you stay?").upper()
-                    if iwantmymoneyback == "LEAVE":
+                    if iwantmymoneyback == "LEAVE" or iwantmymoneyback =="":
                         print("You decide to not do this and go upstairs because this is not worth your time")
                         yougodown = True
                         print(yougodown)
                         floor = floor - 1942
                         print("you are back on floor", floor)
+
                     elif iwantmymoneyback == "STAY": 
                         print("so you decided to venture forth!") 
                         print("you are not the coward i thought you would be.")
@@ -116,6 +135,7 @@ while life == 1:
                         print("as you walk past this abandoned station")
                         print("you notice there seems to be a worker sitting.")
                         littledoyouknow = input("do you wake him up?").upper()
+
                         while littledoyouknow != "YES":
                             print("You dont have a choice. You said,",littledoyouknow,)
                             littledidyouknow = input("let me ask you one more time. wake him up. Yes. Or. No.").upper()
@@ -126,6 +146,7 @@ while life == 1:
                         print("he also tells you that his favourite flavour of")
                         print("oh wait no hes dead.")
                         print("you then walk through more. you see a carriage")
+
                         geton = input("get in carriage and go?").upper()
                         if geton == "YES":
                             print("and so you get on and flick the lever but")
@@ -144,9 +165,10 @@ while life == 1:
                             print("you dont want to play my game!")
                             life = life - 1
 
+                if pickadoor == "2" and door2 == True:
+                    print("you cannot go here! you have been here before")
 
-
-                elif pickadoor == "2": #door 2
+                elif pickadoor == "2" and door2 == False: #door 2
                     print("you enter this room which is a very small room. ")
                     print("you look around, it looks like an office setup.")
                     print("the lock is broken. this means that the door doesn't close.")
@@ -161,6 +183,7 @@ while life == 1:
                         print("well! you fixed the keycard reader!")
                         print("you have now locked the doors properly.")
                         doors = doors + 1
+                        door2 = True
         
         if whichone == "2": #farming! DONE
             print("you go to the open space which has lights on 24/7. ")
@@ -254,6 +277,7 @@ while life == 1:
                 print("soldiers which are hired by the government!")
                 print("go down to the bottom of those steps. ")
                 print("there you can escape. godspeed",nameplease,".")
+                doors = doors -1
 
         if whichone == "7":
             print("lets play a magic game!")
