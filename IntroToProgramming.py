@@ -232,8 +232,17 @@ while life == 1:
 
         if whichone == "7":
             print("lets play a magic game!")
-
-                
+            higherorlower = random.randint(1,100)
+            putanumberin = int(input("what number will you guess?"))
+            while putanumberin != higherorlower:
+                if putanumberin > higherorlower:
+                    print("too high!")
+                    putanumberin = int(input("please guess again"))
+                elif putanumberin < higherorlower:
+                    print("too low!")
+                    putanumberin = int(input("please guess again"))
+                elif putanumberin == higherorlower:
+                    print("you win!")
         
 
 
