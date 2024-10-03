@@ -6,6 +6,7 @@ cropamount = 0
 doors = 0
 taxesavoided = 0
 yougodown = False
+youguess = 1
 
 door2 = False
 door3 = False
@@ -47,6 +48,10 @@ if nameplease =="MARTIN":
 
 elif nameplease == "MYKOLA":
     print(mykola) #if mykola plays, a photo of a parasaurolophus appears with his head on it.
+
+elif nameplease == "JACK":
+    print("WELCOME TO THE HELL EXPIDITION")
+    print("Exiting Hell Expidition.")
 
 print("Hello",nameplease,"You have been given the highest level of authority")
 #inpput of accepting comms or not
@@ -279,20 +284,27 @@ while life == 1:
                 print("there you can escape. godspeed",nameplease,".")
                 doors = doors -1
 
+
         if whichone == "7":
-            print("lets play a magic game!")
-            higherorlower = random.randint(1,100)
-            putanumberin = int(input("what number will you guess?"))
-            while putanumberin != higherorlower:
-                if putanumberin > higherorlower:
-                    print("too high!")
-                    putanumberin = int(input("please guess again"))
-                elif putanumberin < higherorlower:
-                    print("too low!")
-                    putanumberin = int(input("please guess again"))
-            if putanumberin == higherorlower:
-                 print("you win!")
-        
+            print("Let's play a magic game!")
+        higherorlower = random.randint(1, 100)
+        while True:
+                try:
+                    putanumberin = int(input("What number will you guess? "))
+                    if putanumberin > higherorlower:
+                        print("Too high!")
+                        youguess = youguess +1
+                    elif putanumberin < higherorlower:
+                        print("Too low!")
+                        youguess = youguess +1
+                    else:
+                        print("You win!")
+                        print("it took you", youguess,"guesses!")
+                        youguess = youguess - youguess
+                        youguess = youguess + 1
+                        break
+                except ValueError:
+                    print("Invalid input. Please enter a number.")
 
 
 print_slow("Systems Shutting Down....... \n")
