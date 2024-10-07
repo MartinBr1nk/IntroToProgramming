@@ -11,7 +11,10 @@ youguess = 1
 door2 = False
 door3 = False
 
-import time, random,achivements, themasterplan
+import time
+import random
+import achivements
+import themasterplan
 def print_slow(str):
     for letter in str:
         print(letter, end = "")
@@ -91,7 +94,6 @@ while life == 1:
                     print("You started on the 8th Floor.")
                     print("you have gone down the steps and on a new floor.")
                     print("You check the room you chose on the list.") 
-                    print("There is only a Terminal with Tape Keeping the Screen in. ")
                     print("There is a Sticky Note on the Desk. ")
                     print("You Check If the other doors are locked which they are. This allows you to continue to do your task.")
                     floor = floor + 1
@@ -101,9 +103,14 @@ while life == 1:
                     readnote = input("do you read the note?")
                     if readnote == "yes":
                         print("The note says - This Terminal Has Passed Health And Safety tests")
+                    elif readnote == "no" or "":
+                        print("you choose not to read the note")
                     logonterminal = input("will you log onto the terminal?").upper()
                     if logonterminal == "YES":
                         print_slow("Hello and Welcome Back to the terminal. What Would You Like to Do?")
+                    elif logonterminal =="NO" or "":
+                        print("you go back to the main hall to see what you can do")
+
                         
             
                 elif pickadoor == "1": #door 1/way to secret ending 
@@ -183,6 +190,9 @@ while life == 1:
                         print("Congratulations! you aren't as dumb as you look")
                     elif whichwire == "RED":
                         print("did you honestly think blue goes with red?")
+                        life = life - 1
+                    elif whichwire =="":
+                        print("quiet one eh? you have died.")
                         life = life - 1
                     if life == 1:
                         print("well! you fixed the keycard reader!")
