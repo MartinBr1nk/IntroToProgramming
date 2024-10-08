@@ -28,17 +28,18 @@ def print_faster(str):
         time.sleep(random.uniform(0.001, 0.0005))
 
 os.system('mode con: cols=250 lines=180')
+terminalbootup  = achivements.doster
+terminalbootup
 
 singingachievement = achivements.singitloudandproud
 thecoolname = achivements.yougotacoolname
 lockallthedoorsmaybewellneverfindit = themasterplan.lockdownlogo
 singitloud = themasterplan.masterplan
-terminalbootup  = achivements.doster
-terminalbootup
 easteregginoctober = achivements.creatorwithnameofuser
 netherdidithoughtwedgodown = achivements.weneedtogodeeper
 mykola = achivements.errorface
 tunnel = achivements.underground
+theendgoose = achivements.gooseending  
 
 print("Terminal Assistant -Last Updated- Jan 24th 1963")
 nameplease= input("Input Agent Name ").upper()
@@ -103,15 +104,15 @@ while life == 1:
                     print("you cannot go here!")
 
                 elif pickadoor == "3" and door3 == False: #you go down a floor and then turn on a computer
-                    print("you have descended doors down to Floor 9")  
-                    print("You check the room assigned in the terminal and look into it. ")
-                    print("There is nothing but a New Terminal with Red Tape Keeping the Screen in Place. ")
-                    print("You Check If the other doors are locked which they are. This allows you to continue to do your task.")
-                    print("You started on the 8th Floor.")
-                    print("you have gone down the steps and on a new floor.")
-                    print("You check the room you chose on the list.") 
-                    print("There is a Sticky Note on the Desk. ")
-                    print("You Check If the other doors are locked which they are. This allows you to continue to do your task.")
+                    print("you have descended doors down to Floor 9"
+                    "You check the room assigned in the terminal and look into it. "
+                    "There is nothing but a New Terminal with Red Tape Keeping the Screen in Place. "
+                    "You Check If the other doors are locked which they are. This allows you to continue to do your task."
+                    "You started on the 8th Floor."
+                    "you have gone down the steps and on a new floor."
+                    "You check the room you chose on the list."
+                    "There is a Sticky Note on the Desk. "
+                    "You Check If the other doors are locked which they are. This allows you to continue to do your task.")
                     floor = floor + 1
                     doors = doors + 1
                     door3 = True
@@ -199,6 +200,41 @@ while life == 1:
                               "so you then continue to walk down the corridor"
                               "which says way out on it and you see some"
                               "esculators. Do you go up them or no?")
+                        esculator = input("go up esculator?")
+                        if esculator == "yes":
+                            print("so you decide to go up the esculator! as"
+                                  "you continue up the esculator you see"
+                                  "many adverts from throughout the years"
+                                  "and then you get to the top of the esculator."
+                                  "when you step off the esculator there is a "
+                                  "shop. would you like to take some items?")
+                            shop=input("welcome to my shop! what do you want"
+                                       "i have cornettos, and a goose and"
+                                       "i also have an apple crumble")
+                            if shop == "cornetto":
+                                print("good luck escaping those killers then..")
+                            
+                            elif shop == "goose": #one way to get good ending (goose ending)
+                                print("honk! thank you for your purchase, hes"
+                                      " been driving me up the walls lately!")
+                                inspectgoose = input(" care to inspect inspect my goose?")
+                                if inspectgoose == "yes":
+                                    print("goose is big. 5ft with big wingspan"
+                                          " very big and cool")
+                                    print("you put a saddle on the goose and"
+                                          " you break out of the station and"
+                                          " you leave for pastures new.")
+                                    life = life - 1
+                                    gooseending = True
+                                    break
+                            
+                            elif shop == "apple crumble":
+                                print("you eat the apple crumble! it is very "
+                                      "tasty. it reminds you of home")
+
+                        elif esculator != "yes":
+                            print("your journey ends here noble agent.")
+                            life = life - 1
 
                 if pickadoor == "2" and door2 == True:
                     print("you cannot go here! you have been here before")
@@ -342,6 +378,8 @@ while life == 1:
         else:
             print("Invalid Option. Please enter a number between one and seven.")
 
+        
+
 print_slow("Systems Shutting Down....... \n")
-print("You Achieved, Coolname =", thecoolname , "singitloud = ",singingachievement)
+print("You Achieved, Coolname =", thecoolname , "singitloud = ",singingachievement, "goose ending = ",theendgoose)
 

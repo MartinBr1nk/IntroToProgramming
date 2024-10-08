@@ -6,7 +6,7 @@ didthebrief = False
 yougotacoolname = False
 youdidntsing = False
 weneedtogodeeper = False
-
+gooseending = False
 import time, random
 def print_slow(str):
     for letter in str:
