@@ -1,4 +1,7 @@
-﻿total = 0
+﻿import os
+os.system('mode con: cols=129 lines=36')
+
+total = 0
 life = 1
 floor = 8
 lockdownprotocol = False
@@ -10,7 +13,6 @@ youguess = 1
 
 door2 = False
 door3 = False
-
 import time
 import random
 import achivements
@@ -24,6 +26,8 @@ def print_faster(str):
     for letter in str:
         print(letter, end = "")
         time.sleep(random.uniform(0.001, 0.0005))
+
+os.system('mode con: cols=250 lines=180')
 
 singingachievement = achivements.singitloudandproud
 thecoolname = achivements.yougotacoolname
@@ -47,6 +51,7 @@ if nameplease =="MARTIN":
     thecoolname = True
     print("cool name dude!")
     print(easteregginoctober)
+    time.sleep(10)
     print(thecoolname)
 
 elif nameplease == "MYKOLA":
@@ -60,7 +65,7 @@ print("Hello",nameplease,"You have been given the highest level of authority")
 #inpput of accepting comms or not
 incomingmessage = input("incoming message - Origin HOMEBASE. Accept?").upper()
 message_loop = True
-while message_loop:
+while message_loop == True:
     if incomingmessage == "YES":
             message_loop = False
             print_slow("Connection Secured.")
@@ -68,10 +73,21 @@ while message_loop:
             print_slow("We regret to inform you that your base has been comprimised.") 
             print_slow("Please follow the measures in the next transmission. ")
             print_slow("CONNECTION TERMINATED ")
+    
     elif incomingmessage == "NO":
             message_loop = False
             print("You hear a noise coming from above you. Curious you leave the secure room and investigate, An Intruder then with a machete beheads you and it is game over.")
             life = life - 1
+    
+    elif incomingmessage == "SKIP":
+        devname = input("debug mode - enter dev name to continue")
+        if devname == "Martin":
+            message_loop = False
+            print("skipping this dialogue.")
+        elif devname != "Martin":
+            print("wrong name detected.")
+
+
     else:
         print("input invalid dummy")
         incomingmessage = input("Accept or Deny the Intercom?").upper()
@@ -100,15 +116,17 @@ while life == 1:
                     doors = doors + 1
                     door3 = True
                     print("you are on floor", floor)
-                    readnote = input("do you read the note?")
-                    if readnote == "yes":
+                    readnote = input("do you read the note?").upper()
+                    if readnote == "YES":
                         print("The note says - This Terminal Has Passed Health And Safety tests")
-                    elif readnote == "no" or "":
+                    elif readnote == "NO" or readnote == "":
                         print("you choose not to read the note")
+                    else:
+                        print("invalid input.")
                     logonterminal = input("will you log onto the terminal?").upper()
                     if logonterminal == "YES":
                         print_slow("Hello and Welcome Back to the terminal. What Would You Like to Do?")
-                    elif logonterminal =="NO" or "":
+                    elif logonterminal =="NO" or readnote == "":
                         print("you go back to the main hall to see what you can do")
 
                         
@@ -150,7 +168,7 @@ while life == 1:
 
                         while littledoyouknow != "YES":
                             print("You dont have a choice. You said,",littledoyouknow,)
-                            littledidyouknow = input("let me ask you one more time. wake him up. Yes. Or. No.").upper()
+                            littledoyouknow = input("let me ask you one more time. wake him up. Yes. Or. No.").upper()
                         print("He jolts awake in a cold sweat.")
                         print("he seems rattled about where he is. ")
                         print("there is also a lot of blood on the floor")
@@ -172,10 +190,15 @@ while life == 1:
                                 print("and you are at your destination!")
                                 print("it is this old midpoint between stations")
                                 print_faster(tunnel)
-                        if geton == "NO":
+                        elif geton == "NO" or geton == "":
                             print("okay then, you die because")
                             print("you dont want to play my game!")
                             life = life - 1
+                        print("you walk through the station. as you do you see"
+                              "that there is a sort of sign which says way out"
+                              "so you then continue to walk down the corridor"
+                              "which says way out on it and you see some"
+                              "esculators. Do you go up them or no?")
 
                 if pickadoor == "2" and door2 == True:
                     print("you cannot go here! you have been here before")
@@ -191,7 +214,7 @@ while life == 1:
                     elif whichwire == "RED":
                         print("did you honestly think blue goes with red?")
                         life = life - 1
-                    elif whichwire =="":
+                    if whichwire == "":
                         print("quiet one eh? you have died.")
                         life = life - 1
                     if life == 1:
@@ -200,7 +223,7 @@ while life == 1:
                         doors = doors + 1
                         door2 = True
         
-        if whichone == "2": #farming! DONE
+        elif whichone == "2": #farming! DONE
             print("you go to the open space which has lights on 24/7. ")
             print("there are different crops available to harvest: ")
             print("Corn, Potato, Carrot, Lettuce")
@@ -227,7 +250,7 @@ while life == 1:
                     print("total amount of crops you have harvested is", cropamount)
                     harvestmoon = input("keep harvesting or press 0 to stop").upper()
 
-        if whichone == "3": #lockdown protocol if you dont put on the respirator you die
+        elif whichone == "3": #lockdown protocol if you dont put on the respirator you die
             lockthatdown=input("Please Enter your Name to Initiate Lockdown Protocol").upper()
             if lockthatdown == nameplease:
                 print("Oxygen Deprivation Protocol has Started.")
@@ -246,7 +269,7 @@ while life == 1:
                     life=life -1
                     print_slow("Logging off - User Has Died")
         
-        elif whichone == "4":
+        elif whichone == "4": #armory with prompt to fight an "intruder"
             print("you walk to the armory and decide you need a weapon")
             willyoutakeaweapon = input("will you take a weapon from the armoury?").upper()
             if willyoutakeaweapon == "YES":
@@ -271,18 +294,18 @@ while life == 1:
                 print("oh so your a pacifist? yeah no you're dead")
                 life = life - 1
         
-        if whichone == "5":
+        elif whichone == "5": #avoid taxes
             print("taxes avoided")
             taxesavoided = taxesavoided + 1
-            if taxesavoided == 10:
+            if taxesavoided == 5:
                 print("authorities have been notified and you can no longer use this terminal.")
                 break
 
-        if whichone == "6" and yougodown ==False:
+        elif whichone == "6" and yougodown ==False: #checking if you went back up instead of doing the secret ending
             print("welcome to the message hub")
             print("you have no new messages")
         
-        elif whichone == "6" and yougodown == True:
+        elif whichone == "6" and yougodown == True: #same as above
             print("you have a new message! Message from 2 mins ago.")
             readit =input("will you read the message?")
             if readit == "yes":
@@ -295,27 +318,29 @@ while life == 1:
                 doors = doors -1
 
 
-        if whichone == "7":
+        elif whichone == "7": #number picking game 
             print("Let's play a magic game!")
-        higherorlower = random.randint(1, 100)
-        while True:
+            higherorlower = random.randint(1, 100)
+            guess = 0
+            while guess != higherorlower:
                 try:
-                    putanumberin = int(input("What number will you guess? "))
-                    if putanumberin > higherorlower:
-                        print("Too high!")
-                        youguess = youguess +1
-                    elif putanumberin < higherorlower:
-                        print("Too low!")
-                        youguess = youguess +1
+                    guess = int(input("what number will you guess"))
+                    if guess > higherorlower:
+                         print("too high!")
+                         youguess = youguess + 1
+                    elif guess < higherorlower:
+                         print("too low!")
+                         youguess = youguess + 1
                     else:
-                        print("You win!")
-                        print("it took you", youguess,"guesses!")
-                        youguess = youguess - youguess
-                        youguess = youguess + 1
-                        break
-                except ValueError:
-                    print("Invalid input. Please enter a number.")
-
+                         print("you got the number correct!")
+                         print("you did it in", youguess, "tries")
+                
+                except TypeError:
+                    print("thats not a single whole number IDIOT")
+                else:
+                    pass
+        else:
+            print("Invalid Option. Please enter a number between one and seven.")
 
 print_slow("Systems Shutting Down....... \n")
 print("You Achieved, Coolname =", thecoolname , "singitloud = ",singingachievement)
