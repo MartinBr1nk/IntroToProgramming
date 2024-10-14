@@ -1,4 +1,5 @@
 ﻿import os
+from tkinter import YES
 os.system('mode con: cols=129 lines=36')
 
 total = 0
@@ -39,14 +40,42 @@ easteregginoctober = achivements.creatorwithnameofuser
 netherdidithoughtwedgodown = achivements.weneedtogodeeper
 mykola = achivements.errorface
 tunnel = achivements.underground
-theendgoose = achivements.gooseending  
+theendgoose = achivements.gooseending
+gooseascii = achivements.gooseinthewild
 
+def goose_check():
+    goose_message = ["Goose Not Detected", "Oie non détectée",
+                     "Gans nie opgespoor nie", "Gans niet gedetecteerd", ":(",
+                     "Wiżż mhux Individwat", "Oca non rilevata",
+                     "Gèadh nach deach a lorg.", "Where is my Goose?",
+                     "To Honk, Or not to Honk. That is the Question", "Knife",
+                     "Wings of Fury will be unleashed upon you.",
+                     "The Gaggle Shall Decide your Fate.",
+                     "We Shall punish you to the furthest extent of the Law.",
+                     "You will Be Tortured until you release him.",
+                     "Watch it.", "We Shall Riot Outside until he is safe"]
+    path = './Goose.png'
+    gcheck = os.path.isfile(path)
+    if gcheck == False:
+        while True:
+            print(goose_message[random.randint(0, 16)])
+            time.sleep(1)
+            print("\n")
+    elif gcheck == True:
+        print("Goose Detected. Launcing Software")
+
+    #If the goose is NOT present then the program WILL NOT WORK.
+    #DO NOT REMOVE THIS CODE. THE PROGRAM WILL NOT WORK WITHOUT IT.
+goose_check()
 print("Terminal Assistant -Last Updated- Jan 24th 1963")
 nameplease= input("Input Agent Name ").upper()
 
 if nameplease =="":
     nameplease = "USER"
     print("no name inputted. USER Is Default Name")
+
+print("Please Be Aware that if there is a Yes or No Question," 
+      " Please Enter yes or no.")
 
 if nameplease =="MARTIN":
     thecoolname = True
@@ -129,6 +158,7 @@ while life == 1:
                         print_slow("Hello and Welcome Back to the terminal. What Would You Like to Do?")
                     elif logonterminal =="NO" or readnote == "":
                         print("you go back to the main hall to see what you can do")
+                    total = total + 1
 
                         
             
@@ -157,6 +187,7 @@ while life == 1:
                         print(yougodown)
                         floor = floor - 1942
                         print("you are back on floor", floor)
+                        total = total + 1
 
                     elif iwantmymoneyback == "STAY": 
                         print("so you decided to venture forth!") 
@@ -195,10 +226,10 @@ while life == 1:
                             print("okay then, you die because")
                             print("you dont want to play my game!")
                             life = life - 1
-                        print("you walk through the station. as you do you see"
-                              "that there is a sort of sign which says way out"
-                              "so you then continue to walk down the corridor"
-                              "which says way out on it and you see some"
+                        print("\n you walk through the station. as you do you see "
+                              "that there is a sort of sign which says way out "
+                              "so you then continue to walk down the corridor "
+                              "which says way out on it and you see some "
                               "esculators. Do you go up them or no?")
                         esculator = input("go up esculator?")
                         if esculator == "yes":
@@ -224,8 +255,14 @@ while life == 1:
                                     print("you put a saddle on the goose and"
                                           " you break out of the station and"
                                           " you leave for pastures new.")
+                                    print("the gaggle is now reunited! :D")
                                     life = life - 1
-                                    gooseending = True
+                                    theendgoose = True
+                                    os.startfile("Goose.png")
+                                    os.startfile("Angry Goose.png")
+                                    os.startfile("Friendly Goose.png")
+                                    os.startfile("Gallagher Goose.png")
+                                    os.startfile("Old Goose.png")
                                     break
                             
                             elif shop == "apple crumble":
@@ -236,7 +273,7 @@ while life == 1:
                             print("your journey ends here noble agent.")
                             life = life - 1
 
-                if pickadoor == "2" and door2 == True:
+                elif pickadoor == "2" and door2 == True:
                     print("you cannot go here! you have been here before")
 
                 elif pickadoor == "2" and door2 == False: #door 2
@@ -244,20 +281,18 @@ while life == 1:
                     print("you look around, it looks like an office setup.")
                     print("the lock is broken. this means that the door doesn't close.")
                     print("Luckily there are tools on the desk to help you fix it.")
-                    whichwire=input("do you join the blue with the red or blue?").upper
+                    whichwire = input("do you join the blue with the red or blue?").upper()
+
                     if whichwire == "BLUE":
                         print("Congratulations! you aren't as dumb as you look")
-                    elif whichwire == "RED":
-                        print("did you honestly think blue goes with red?")
-                        life = life - 1
-                    if whichwire == "":
-                        print("quiet one eh? you have died.")
-                        life = life - 1
-                    if life == 1:
                         print("well! you fixed the keycard reader!")
                         print("you have now locked the doors properly.")
                         doors = doors + 1
                         door2 = True
+                    else:
+                       print("you died because you are stupid.")
+                       life -= 1
+                       break
         
         elif whichone == "2": #farming! DONE
             print("you go to the open space which has lights on 24/7. ")
@@ -382,4 +417,12 @@ while life == 1:
 
 print_slow("Systems Shutting Down....... \n")
 print("You Achieved, Coolname =", thecoolname , "singitloud = ",singingachievement, "goose ending = ",theendgoose)
+
+addtotheboard = input("would you like to add your name and score to the leaderboard?").upper()
+if addtotheboard == "YES":
+    f=open("leaderboard.txt", "a")
+    f.write(nameplease, "having a cool name was ", thecoolname, "singing in the corridor was ", singingachievement, "getting on the goose in the end was ", theendgoose)
+    print(f.read())
+if theendgoose == True:
+    print(gooseascii)
 
