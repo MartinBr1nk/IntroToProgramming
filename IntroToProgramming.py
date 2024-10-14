@@ -1,7 +1,9 @@
 ﻿import os
 from tkinter import YES
 os.system('mode con: cols=129 lines=36')
+finalefile=open("Finale Story.txt","r")
 
+score = 0
 total = 0
 life = 1
 floor = 8
@@ -42,6 +44,8 @@ mykola = achivements.errorface
 tunnel = achivements.underground
 theendgoose = achivements.gooseending
 gooseascii = achivements.gooseinthewild
+
+f = open("leaderboard.txt", "a") # this is the leaderboard for if you wish to see the scores
 
 def goose_check():
     goose_message = ["Goose Not Detected", "Oie non détectée",
@@ -129,6 +133,7 @@ while life == 1:
         if whichone == "1":
             while doors != 3:
                 pickadoor = input("what do you check first? Door 1, Door 2 or Door 3") #Prompt asking you which floor to go to
+                
                 if pickadoor == "3" and door3 == True:
                     print("you cannot go here!")
 
@@ -159,6 +164,7 @@ while life == 1:
                     elif logonterminal =="NO" or readnote == "":
                         print("you go back to the main hall to see what you can do")
                     total = total + 1
+                    score = score + 500
 
                         
             
@@ -234,16 +240,22 @@ while life == 1:
                         esculator = input("go up esculator?")
                         if esculator == "yes":
                             print("so you decide to go up the esculator! as"
-                                  "you continue up the esculator you see"
-                                  "many adverts from throughout the years"
-                                  "and then you get to the top of the esculator."
-                                  "when you step off the esculator there is a "
-                                  "shop. would you like to take some items?")
+                                  " you continue up the esculator you see"
+                                  " many adverts from throughout the years"
+                                  " and then you get to the top of the esculator."
+                                  " when you step off the esculator there is a "
+                                  " shop. would you like to take some items?")
                             shop=input("welcome to my shop! what do you want"
                                        "i have cornettos, and a goose and"
                                        "i also have an apple crumble")
                             if shop == "cornetto":
                                 print("good luck escaping those killers then..")
+                                print(" and escape them you did. you ran,"
+                                      " ran and ran some more. until you"
+                                      " ended far far far away from"
+                                      " that horrid place")
+                                life = life - 1
+                                score = score + 250
                             
                             elif shop == "goose": #one way to get good ending (goose ending)
                                 print("honk! thank you for your purchase, hes"
@@ -263,11 +275,18 @@ while life == 1:
                                     os.startfile("Friendly Goose.png")
                                     os.startfile("Gallagher Goose.png")
                                     os.startfile("Old Goose.png")
+                                    score = score + 90053
                                     break
                             
                             elif shop == "apple crumble":
                                 print("you eat the apple crumble! it is very "
                                       "tasty. it reminds you of home")
+                                print("in wizard of oz style you close your eyes"
+                                      " and think of your home and then...."
+                                      " you are home! ")
+                                life = life - 1
+                                score = score + 200
+                                break
 
                         elif esculator != "yes":
                             print("your journey ends here noble agent.")
@@ -284,7 +303,7 @@ while life == 1:
                     whichwire = input("do you join the blue with the red or blue?").upper()
 
                     if whichwire == "BLUE":
-                        print("Congratulations! you aren't as dumb as you look")
+                        print("Congratulations!you're not as dumb as you seem")
                         print("well! you fixed the keycard reader!")
                         print("you have now locked the doors properly.")
                         doors = doors + 1
@@ -299,7 +318,8 @@ while life == 1:
             print("there are different crops available to harvest: ")
             print("Corn, Potato, Carrot, Lettuce")
             print("Cabbage, Tomato, Pumpkin, Watermelon, Onion and Strawberry")
-            harvestmoon = input("what would you like to harvest? (0 to end) ").upper()
+            harvestmoon = input("what would you like to harvest?" 
+                                "(0 to end) ").upper()
             while harvestmoon != "0": 
                 if harvestmoon =="CORN"\
                    or harvestmoon =="POTATO" \
@@ -311,6 +331,7 @@ while life == 1:
                    or harvestmoon == "ONION" \
                    or harvestmoon == "STRAWBERRY"  \
                    or harvestmoon == "CARROT":
+                    score = score + 25
                     print("you have succesfully harvested a crop")
                     cropamount = cropamount + 1
                     harvestmoon = input("keep harvesting or press 0 to stop").upper()
@@ -329,6 +350,7 @@ while life == 1:
                 print_faster(lockallthedoorsmaybewellneverfindit)
             elif lockthatdown != nameplease:
                 print("Lockdown cancelled.")
+                total = total + 1
 
             if lockdownprotocol == True:
                 lifeordeath = input("do you put on your respirator?").upper() #respirator
@@ -355,19 +377,26 @@ while life == 1:
             fighthim = input("do you fight the figure?")
             if fighthim == "yes" and pickaweapon == "1":
                 print("you behead the intruder and spill his guts out")
+                total = total + 1
             elif fighthim == "yes" and pickaweapon == "2":
-                print("he runs towards you at a speed, you then hit him")
-                print("he is then stone cold and you then finish the job")
+                print("he runs towards you at a speed, you then hit him"
+                      " he is then stone cold and you then finish the job")
+                total + 1
             elif fighthim == "yes" and pickaweapon == "3":
-                print("in true style you hit him repeatedly until he falls")
-                print("strange too because im sure i heard dont stop me now....")
+                print("in true style you hit him repeatedly until he falls"
+                      "strange too because im sure i heard dont stop me now....")
+                total = total + 1
+                score = score + 650
             elif fighthim == "no":
                 print("oh so your a pacifist? yeah no you're dead")
                 life = life - 1
+                
         
         elif whichone == "5": #avoid taxes
             print("taxes avoided")
             taxesavoided = taxesavoided + 1
+            total + 1
+            score = score + 250
             if taxesavoided == 5:
                 print("authorities have been notified and you can no longer use this terminal.")
                 break
@@ -375,6 +404,7 @@ while life == 1:
         elif whichone == "6" and yougodown ==False: #checking if you went back up instead of doing the secret ending
             print("welcome to the message hub")
             print("you have no new messages")
+            total + 1
         
         elif whichone == "6" and yougodown == True: #same as above
             print("you have a new message! Message from 2 mins ago.")
@@ -387,6 +417,8 @@ while life == 1:
                 print("go down to the bottom of those steps. ")
                 print("there you can escape. godspeed",nameplease,".")
                 doors = doors -1
+                total + 1
+                score = score + 125
 
 
         elif whichone == "7": #number picking game 
@@ -405,6 +437,8 @@ while life == 1:
                     else:
                          print("you got the number correct!")
                          print("you did it in", youguess, "tries")
+                         score = score + 100
+                         total = total + 1
                 
                 except TypeError:
                     print("thats not a single whole number IDIOT")
@@ -414,15 +448,27 @@ while life == 1:
             print("Invalid Option. Please enter a number between one and seven.")
 
         
+        if total >= 7: #main ending 
+            print(finalefile.read())
+            life = life - 1
+
+        finalefile.close()
 
 print_slow("Systems Shutting Down....... \n")
 print("You Achieved, Coolname =", thecoolname , "singitloud = ",singingachievement, "goose ending = ",theendgoose)
+print("your score was", score)
 
 addtotheboard = input("would you like to add your name and score to the leaderboard?").upper()
 if addtotheboard == "YES":
-    f=open("leaderboard.txt", "a")
-    f.write(nameplease, "having a cool name was ", thecoolname, "singing in the corridor was ", singingachievement, "getting on the goose in the end was ", theendgoose)
-    print(f.read())
+    boardfile=open("Leaderboard.txt", "a")
+    boardfile.write(nameplease)
+    #boardfile.write("score =")
+    #boardfile.write(score)
+    boardfile.write("achievements are in this order: Coolname, Singitloud, Goose Ending")
+    print(boardfile.read())
+    boardfile.close()
+else:
+    print("You did not say yes so the code will now exit. Thanks for playing!")
 if theendgoose == True:
     print(gooseascii)
 
