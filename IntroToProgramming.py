@@ -427,7 +427,7 @@ while life == 1:
             guess = 0
             while guess != higherorlower:
                 try:
-                    guess = int(input("what number will you guess"))
+                    guess = int(input("what number will you guess 1 - 100"))
                     if guess > higherorlower:
                          print("too high!")
                          youguess = youguess + 1
@@ -461,10 +461,10 @@ print("your score was", score)
 addtotheboard = input("would you like to add your name and score to the leaderboard?").upper()
 if addtotheboard == "YES":
     boardfile=open("Leaderboard.txt", "a")
-    boardfile.write(nameplease)
-    #boardfile.write("score =")
-    #boardfile.write(score)
-    boardfile.write("achievements are in this order: Coolname, Singitloud, Goose Ending")
+    boardfile.write(f"\n {nameplease} - score = {score} \n achievements are : Coolname {thecoolname}, Singitloud {singingachievement}, Goose Ending {theendgoose}",)
+    boardfile.close()
+    
+    boardfile = open("Leaderboard.txt", "r")
     print(boardfile.read())
     boardfile.close()
 else:

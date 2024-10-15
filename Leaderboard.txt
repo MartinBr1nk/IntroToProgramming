@@ -1,1 +1,5 @@
-THIS IS THE LEADERBOARDNOscore =
+THIS IS THE LEADERBOARDMscore =TESTY - score = 0 
+ achievements are in this order: Coolname, Singitloud, Goose EndingTESTY - score = 0 
+ achievements are in this order: Coolname, Singitloud, Goose Ending
+ MYKOLA - score = 0 
+ achievements are : Coolname False, Singitloud False, Goose Ending False
