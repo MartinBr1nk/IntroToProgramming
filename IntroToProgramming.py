@@ -196,6 +196,7 @@ while character.Life == 1:
                         floor = floor - 1942
                         print("you are back on floor", floor)
                         total = total + 1
+                   
 
                     elif iwantmymoneyback == "STAY": 
                         print("so you decided to venture forth!") 
@@ -205,6 +206,9 @@ while character.Life == 1:
                         print("as you walk past this abandoned station")
                         print("you notice there seems to be a worker sitting.")
                         littledoyouknow = input("do you wake him up?").upper()
+                    else:
+                        print("you have inputted an incorrect value.")
+                        iwantmymoneyback = input("do you go back upstairs or do you stay?").upper()
 
                         while littledoyouknow != "YES":
                             print("You dont have a choice. You said,",littledoyouknow,)
@@ -376,7 +380,12 @@ while character.Life == 1:
                     print("you have an arm? Not of human origin but a microphone arm, it has a thick metal bottom which might be of great use")
                 elif pickaweapon == "3":
                     print("you get a cricket bat! where are the zombies and fences to jump over.....")
-            print("as you are walking into your terminal you see a figure rush you")
+                else:
+                    print("you kind of need a weapon...")
+                    pickaweapon = input("pick a weapon between 1 and 3.")
+
+
+            print("as you are walking into your terminal you see a figure rush you") #intruder prompt
             fighthim = input("do you fight the figure?")
             if fighthim == "yes" and pickaweapon == "1":
                 print("you behead the intruder and spill his guts out")
@@ -393,8 +402,11 @@ while character.Life == 1:
             elif fighthim == "no":
                 print("oh so your a pacifist? yeah no you're dead")
                 character.Life = character.Life - 1
+            elif fighthim == "":
+                print("ah we have ourselves the silent type! prepare to die")
+                life = life - 1
                 
-        
+
         elif whichone == "5": #avoid taxes
             print("taxes avoided")
             taxesavoided = taxesavoided + 1
@@ -430,7 +442,7 @@ while character.Life == 1:
             guess = 0
             while guess != higherorlower:
                 try:
-                    guess = int(input("what number will you guess 1 - 100"))
+                    guess = int(input("what number will you guess 1 - 100 "))
                     if guess > higherorlower:
                          print("too high!")
                          youguess = youguess + 1
@@ -442,6 +454,7 @@ while character.Life == 1:
                          print("you did it in", youguess, "tries")
                          score = score + 100
                          total = total + 1
+                         guess = 0
                 
                 except TypeError:
                     print("thats not a single whole number IDIOT")
