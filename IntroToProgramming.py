@@ -5,7 +5,6 @@ finalefile=open("Finale Story.txt","r")
 
 score = 0
 total = 0
-life = 1
 floor = 8
 lockdownprotocol = False
 cropamount = 0
@@ -13,6 +12,7 @@ doors = 0
 taxesavoided = 0
 yougodown = False
 youguess = 1
+devmode = False
 
 door2 = False
 door3 = False
@@ -20,6 +20,9 @@ import time
 import random
 import achivements
 import themasterplan
+from summonthegoose import release_the_geese
+from antigoosepiracy import goose_check
+
 def print_slow(str):
     for letter in str:
         print(letter, end = "")
@@ -30,105 +33,104 @@ def print_faster(str):
         print(letter, end = "")
         time.sleep(random.uniform(0.001, 0.0005))
 
+class Player:
+    def __init__(Self, Name, Life):
+        Self.Name = Name
+        Self.Life = Life
+character = Player("ToBeChanged", 1)
+character.Life = 1
+
 os.system('mode con: cols=250 lines=180')
 terminalbootup  = achivements.doster
 terminalbootup
 
+#Achievements Go Here
 singingachievement = achivements.singitloudandproud
 thecoolname = achivements.yougotacoolname
-lockallthedoorsmaybewellneverfindit = themasterplan.lockdownlogo
 singitloud = themasterplan.masterplan
 easteregginoctober = achivements.creatorwithnameofuser
 netherdidithoughtwedgodown = achivements.weneedtogodeeper
+theendgoose = achivements.gooseending
+
+#Random
+
+#Ascii 
 mykola = achivements.errorface
 tunnel = achivements.underground
-theendgoose = achivements.gooseending
+lockallthedoorsmaybewellneverfindit = themasterplan.lockdownlogo
 gooseascii = achivements.gooseinthewild
 
 f = open("leaderboard.txt", "a") # this is the leaderboard for if you wish to see the scores
 
-def goose_check():
-    goose_message = ["Goose Not Detected", "Oie non détectée",
-                     "Gans nie opgespoor nie", "Gans niet gedetecteerd", ":(",
-                     "Wiżż mhux Individwat", "Oca non rilevata",
-                     "Gèadh nach deach a lorg.", "Where is my Goose?",
-                     "To Honk, Or not to Honk. That is the Question", "Knife",
-                     "Wings of Fury will be unleashed upon you.",
-                     "The Gaggle Shall Decide your Fate.",
-                     "We Shall punish you to the furthest extent of the Law.",
-                     "You will Be Tortured until you release him.",
-                     "Watch it.", "We Shall Riot Outside until he is safe"]
-    path = './Goose.png'
-    gcheck = os.path.isfile(path)
-    if gcheck == False:
-        while True:
-            print(goose_message[random.randint(0, 16)])
-            time.sleep(1)
-            print("\n")
-    elif gcheck == True:
-        print("Goose Detected. Launcing Software")
 
-    #If the goose is NOT present then the program WILL NOT WORK.
-    #DO NOT REMOVE THIS CODE. THE PROGRAM WILL NOT WORK WITHOUT IT.
 goose_check()
 print("Terminal Assistant -Last Updated- Jan 24th 1963")
-nameplease= input("Input Agent Name ").upper()
+character.Name= input("Input Agent Name ").upper()
 
-if nameplease =="":
-    nameplease = "USER"
+if character.Name =="":
+    character.Name = "USER"
     print("no name inputted. USER Is Default Name")
 
 print("Please Be Aware that if there is a Yes or No Question," 
       " Please Enter yes or no.")
 
-if nameplease =="MARTIN":
+if character.Name =="MARTIN":
     thecoolname = True
     print("cool name dude!")
     print(easteregginoctober)
     time.sleep(10)
     print(thecoolname)
 
-elif nameplease == "MYKOLA":
+elif character.Name == "MYKOLA":
     print(mykola) #if mykola plays, a photo of a parasaurolophus appears with his head on it.
 
-elif nameplease == "JACK":
+elif character.Name == "JACK":
     print("WELCOME TO THE HELL EXPIDITION")
     print("Exiting Hell Expidition.")
 
-print("Hello",nameplease,"You have been given the highest level of authority")
+print("Hello",character.Name,"You have been given the highest level of authority")
 #inpput of accepting comms or not
 incomingmessage = input("incoming message - Origin HOMEBASE. Accept?").upper()
 message_loop = True
 while message_loop == True:
     if incomingmessage == "YES":
             message_loop = False
-            print_slow("Connection Secured.")
-            print_slow("Greetings Agent, This is Captain C.Stephens. ")
-            print_slow("We regret to inform you that your base has been comprimised.") 
-            print_slow("Please follow the measures in the next transmission. ")
-            print_slow("CONNECTION TERMINATED ")
+            print_slow("Connection Secured."
+            " Greetings Agent, This is Captain C.Stephens. "
+            " We regret to inform you that your base has been comprimised."
+            " Please follow the measures in the next transmission. "
+            " CONNECTION TERMINATED ")
     
     elif incomingmessage == "NO":
             message_loop = False
-            print("You hear a noise coming from above you. Curious you leave the secure room and investigate, An Intruder then with a machete beheads you and it is game over.")
-            life = life - 1
+            print("You hear a noise coming from above you." 
+                  " Curious you leave the secure room and investigate, "
+                  " An Intruder then with a machete beheads you" 
+                  "and it is game over.")
+            character.Life = character.Life - 1
     
     elif incomingmessage == "SKIP":
         devname = input("debug mode - enter dev name to continue")
         if devname == "Martin":
             message_loop = False
             print("skipping this dialogue.")
+            devmode = True
         elif devname != "Martin":
-            print("wrong name detected.")
+            print("wrong name detected. Please restart the system.")
 
 
     else:
         print("input invalid dummy")
         incomingmessage = input("Accept or Deny the Intercom?").upper()
-while life == 1:       
+while character.Life == 1:       
         print_slow("\nPlease Do the following in any order: \n") 
-        print("1. Lock All The Doors 2. Harvest Crops 3. Initiate Oxygen Deprivation Protocol")
-        print("4. Lock The Armoury 5. Avoid taxes 6. Check Comms 7. Play a Game! ")
+        print("1. Lock All The Doors"
+              " 2. Harvest Crops" 
+              " 3. Initiate Oxygen Deprivation Protocol"
+              " 4. Lock The Armoury "
+              " 5. Avoid taxes "
+              " 6. Check Comms "
+              " 7. Play a Game! ")
         whichone = input ("what will you do first? enter any number")
         if whichone == "1":
             while doors != 3:
@@ -221,7 +223,9 @@ while life == 1:
                             print("no movement! you get off again")
                             print("you decide to look around. you see a PSU.")
                             turnon = input("turn on the PSU?").upper()
-                            if turnon == "YES":
+                            if turnon == "YES" and devmode == True:
+                                print("DevMode On - Skipping Ascii Art")
+                            elif turnon == "YES":
                                 print("BOOM ITS ON!")
                                 print("you get back into the carriage and go")
                                 print_slow("\n Weeeeeeeeeeeeeeeeeeeeeeeeeeeee \n")
@@ -229,16 +233,18 @@ while life == 1:
                                 print("it is this old midpoint between stations")
                                 print_faster(tunnel)
                         elif geton == "NO" or geton == "":
-                            print("okay then, you die because")
-                            print("you dont want to play my game!")
-                            life = life - 1
-                        print("\n you walk through the station. as you do you see "
-                              "that there is a sort of sign which says way out "
+                            print("okay then, you die because"
+                            " you dont want to play my game!")
+                            character.Life = character.Life - 1
+                        print("\n you walk through the station." 
+                              "as you do you see "
+                              "that there is a sort "
+                              "of sign which says way out "
                               "so you then continue to walk down the corridor "
                               "which says way out on it and you see some "
                               "esculators. Do you go up them or no?")
                         esculator = input("go up esculator?")
-                        if esculator == "yes":
+                        if esculator == "yes": #ESCULATOR
                             print("so you decide to go up the esculator! as"
                                   " you continue up the esculator you see"
                                   " many adverts from throughout the years"
@@ -254,7 +260,7 @@ while life == 1:
                                       " ran and ran some more. until you"
                                       " ended far far far away from"
                                       " that horrid place")
-                                life = life - 1
+                                character.Life = character.Life - 1
                                 score = score + 250
                             
                             elif shop == "goose": #one way to get good ending (goose ending)
@@ -268,13 +274,9 @@ while life == 1:
                                           " you break out of the station and"
                                           " you leave for pastures new.")
                                     print("the gaggle is now reunited! :D")
-                                    life = life - 1
+                                    character.Life = character.Life - 1
                                     theendgoose = True
-                                    os.startfile("Goose.png")
-                                    os.startfile("Angry Goose.png")
-                                    os.startfile("Friendly Goose.png")
-                                    os.startfile("Gallagher Goose.png")
-                                    os.startfile("Old Goose.png")
+                                    release_the_geese()
                                     score = score + 90053
                                     break
                             
@@ -284,13 +286,14 @@ while life == 1:
                                 print("in wizard of oz style you close your eyes"
                                       " and think of your home and then...."
                                       " you are home! ")
-                                life = life - 1
+                                character.Life = character.Life - 1
                                 score = score + 200
                                 break
 
                         elif esculator != "yes":
                             print("your journey ends here noble agent.")
-                            life = life - 1
+                            character.Life = character.Life - 1
+                            break
 
                 elif pickadoor == "2" and door2 == True:
                     print("you cannot go here! you have been here before")
@@ -310,7 +313,7 @@ while life == 1:
                         door2 = True
                     else:
                        print("you died because you are stupid.")
-                       life -= 1
+                       character.Life -= 1
                        break
         
         elif whichone == "2": #farming! DONE
@@ -344,11 +347,11 @@ while life == 1:
 
         elif whichone == "3": #lockdown protocol if you dont put on the respirator you die
             lockthatdown=input("Please Enter your Name to Initiate Lockdown Protocol").upper()
-            if lockthatdown == nameplease:
+            if lockthatdown == character.Name:
                 print("Oxygen Deprivation Protocol has Started.")
                 lockdownprotocol = True
                 print_faster(lockallthedoorsmaybewellneverfindit)
-            elif lockthatdown != nameplease:
+            elif lockthatdown != character.Name:
                 print("Lockdown cancelled.")
                 total = total + 1
 
@@ -359,7 +362,7 @@ while life == 1:
                 elif lifeordeath == "NO":
                     print("you start to feel light headed and suddenly, nothing.") 
                     print("You have passed out and in that time you have died.")
-                    life=life -1
+                    character.Life=character.Life -1
                     print_slow("Logging off - User Has Died")
         
         elif whichone == "4": #armory with prompt to fight an "intruder"
@@ -389,7 +392,7 @@ while life == 1:
                 score = score + 650
             elif fighthim == "no":
                 print("oh so your a pacifist? yeah no you're dead")
-                life = life - 1
+                character.Life = character.Life - 1
                 
         
         elif whichone == "5": #avoid taxes
@@ -410,12 +413,12 @@ while life == 1:
             print("you have a new message! Message from 2 mins ago.")
             readit =input("will you read the message?")
             if readit == "yes":
-                print("hello,",nameplease,"I need your help and it is urgent.")
+                print("hello,",character.Name,"I need your help and it is urgent.")
                 print("the government is making a rouse. i promise you this.")
                 print("the problem is that we are being intruded by soldiers")
                 print("soldiers which are hired by the government!")
                 print("go down to the bottom of those steps. ")
-                print("there you can escape. godspeed",nameplease,".")
+                print("there you can escape. godspeed",character.Name,".")
                 doors = doors -1
                 total + 1
                 score = score + 125
@@ -450,7 +453,7 @@ while life == 1:
         
         if total >= 7: #main ending 
             print(finalefile.read())
-            life = life - 1
+            character.Life = character.Life - 1
 
         finalefile.close()
 
@@ -461,7 +464,7 @@ print("your score was", score)
 addtotheboard = input("would you like to add your name and score to the leaderboard?").upper()
 if addtotheboard == "YES":
     boardfile=open("Leaderboard.txt", "a")
-    boardfile.write(f"\n {nameplease} - score = {score} \n achievements are : Coolname {thecoolname}, Singitloud {singingachievement}, Goose Ending {theendgoose}",)
+    boardfile.write(f"\n {character.Name} - score = {score} \n achievements are : Coolname {thecoolname}, Singitloud {singingachievement}, Goose Ending {theendgoose}",)
     boardfile.close()
     
     boardfile = open("Leaderboard.txt", "r")
