@@ -74,6 +74,10 @@ if character.Name =="":
 print("Please Be Aware that if there is a Yes or No Question," 
       " Please Enter yes or no.")
 
+print("greetings,",character.Name,". "
+      "This Program works in the way that it guides you most of the way."
+      " you have only one life so please do not be stupid with your choices.")
+
 if character.Name =="MARTIN":
     thecoolname = True
     print("cool name dude!")
