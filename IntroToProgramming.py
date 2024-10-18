@@ -1,4 +1,5 @@
 ﻿import os
+from telnetlib import WILL
 from tkinter import YES
 os.system('mode con: cols=129 lines=36')
 finalefile=open("Finale Story.txt","r")
@@ -65,13 +66,15 @@ f = open("leaderboard.txt", "a") # this is the leaderboard for if you wish to se
 
 goose_check()
 print("Terminal Assistant -Last Updated- Jan 24th 1963")
-character.Name= input("Input Agent Name ").upper()
 
+while True:
+    character.Name= input("Input Agent Name ").upper()
+    if character.Name.isalpha():
+        break
+    else:
+        print("Make sure to enter your actual name.")
+        continue
 
-
-if character.Name =="":
-    character.Name = "USER"
-    print("no name inputted. USER Is Default Name")
 
 print("Please Be Aware that if there is a Yes or No Question," 
       " Please Enter yes or no.")
@@ -150,14 +153,16 @@ while character.Life == 1:
 
                 elif pickadoor == "3" and door3 == False: #you go down a floor and then turn on a computer
                     print("you have descended doors down to Floor 9"
-                    "You check the room assigned in the terminal and look into it. "
-                    "There is nothing but a New Terminal with Red Tape Keeping the Screen in Place. "
-                    "You Check If the other doors are locked which they are. This allows you to continue to do your task."
-                    "You started on the 8th Floor."
-                    "you have gone down the steps and on a new floor."
-                    "You check the room you chose on the list."
-                    "There is a Sticky Note on the Desk. "
-                    "You Check If the other doors are locked which they are. This allows you to continue to do your task.")
+                    " You check the room assigned in the terminal and look into it. "
+                    " There is nothing but a New Terminal with Red Tape Keeping the Screen in Place. "
+                    " You Check If the other doors are locked which they are." 
+                    " This allows you to continue to do your task."
+                    " You started on the 8th Floor."
+                    " you have gone down the steps and on a new floor."
+                    " You check the room you chose on the list."
+                    " There is a Sticky Note on the Desk. "
+                    " You Check If the other doors are locked which they are." 
+                    " This allows you to continue to do your task.")
                     floor = floor + 1
                     doors = doors + 1
                     door3 = True
@@ -180,8 +185,8 @@ while character.Life == 1:
                         
             
                 elif pickadoor == "1": #door 1/way to secret ending 
-                    try:
-                        print("Down the corridor you go! as you keep going down the corridor you contemplate whether you sing a little song or not.")
+                        print("Down the corridor you go! as you keep going down the corridor" 
+                              "you contemplate whether you sing a little song or not.")
                         sing = input("do you sing?")
                         if sing =="yes":
                             print("so you have decided to sing! so you sing the masterplan by oasis and you say:")
@@ -191,18 +196,20 @@ while character.Life == 1:
                             print("well. you are no fun.")
                             print("mr boring man continues to walk down the hall.") 
                             print("he then sees that there is only one door which is locked. ")
-                            print("He puts the keycard to the door and as he has been given the highest clearance is through.") #door down to true ending 
+                            print("He puts the keycard to the door and as he" 
+                                  "has been given the highest clearance is through.") #door down to true ending 
                             youdidntsing = True
-                        print("you go down a set of stairs taking you back in time into a place which looks very dated.")
+                        print("you go down a set of stairs taking you back in" 
+                              "time into a place which looks very dated.")
                         floor = floor + 1942
                         doors = doors + 1
-                        print("You are on an unknown floor. You try to see what floor you are at on the sign but it is illegible. ")
+                        print("You are on an unknown floor. You try to see what" 
+                              "floor you are at on the sign but it is illegible. ")
                         print("The room looks like a train station ")
                         iwantmymoneyback = input("do you go back upstairs or do you stay?").upper()
                         if iwantmymoneyback != "STAY":
                             print("You decide to not do this and go upstairs because this is not worth your time")
                             yougodown = True
-                            print(yougodown)
                             floor = floor - 1942
                             print("you are back on floor", floor)
                        
@@ -232,6 +239,8 @@ while character.Life == 1:
                                 print("and so you get on and flick the lever but")
                                 print("no movement! you get off again")
                                 print("you decide to look around. you see a PSU.")
+                            if geton != "YES":
+                                print("You did not get on and because of this you have now died")
                                 turnon = input("turn on the PSU?").upper()
                                 if turnon == "YES" and devmode == True:
                                     print("DevMode On - Skipping Ascii Art")
@@ -264,9 +273,11 @@ while character.Life == 1:
                                 shop=input("welcome to my shop! what do you want"
                                            "i have cornettos, and a goose and"
                                            "i also have an apple crumble")
-                                while shop != "cornetto" or shop != "goose" or shop != "apple crumble":
+                                
+                                while shop != "cornetto" or shop != "goose" or shop != "apple crumble": #while loop so you cannot cheese your way through
                                     print("please pick from my shop!")
-                                    shop = input("Goose Cornetto or Apple Crumble!")
+                                    shop = input("Goose, Cornetto or Apple Crumble!")
+                                    
                                     if shop == "cornetto":
                                         print("good luck escaping those killers then..")
                                         print(" and escape them you did. you ran,"
@@ -308,8 +319,6 @@ while character.Life == 1:
                                 character.Life = character.Life - 1
                                 break
 
-                    except TypeError:
-                           print("please add a valid input")
 
                            
                 elif pickadoor == "2" and door2 == True:
@@ -328,7 +337,8 @@ while character.Life == 1:
                         print("you have now locked the doors properly.")
                         doors = doors + 1
                         door2 = True
-                    else:
+                    
+                    elif whichwire != "BLUE":
                        print("you died because you are stupid.")
                        character.Life -= 1
                        break
@@ -390,14 +400,19 @@ while character.Life == 1:
             if willyoutakeaweapon == "YES":
                 pickaweapon = input("pick a number between 1 and 3!")
                 if pickaweapon == "1":
-                    print("Aha! You have a medival broadsword! It has the engravings - MB - Maybe someone of great importance and maybe not.")
+                    print("Aha! You have a medival broadsword! It has the" 
+                          " engravings - MB - Maybe someone of great importance and maybe not.")
                 elif pickaweapon =="2":
-                    print("you have an arm? Not of human origin but a microphone arm, it has a thick metal bottom which might be of great use")
+                    print("you have an arm? Not of human origin but a microphone arm"
+                          ", it has a thick metal bottom which might be of great use")
                 elif pickaweapon == "3":
                     print("you get a cricket bat! where are the zombies and fences to jump over.....")
-                else:
+                while pickaweapon != "1" or pickaweapon != "2" or pickaweapon != "3":
                     print("you kind of need a weapon...")
                     pickaweapon = input("pick a weapon between 1 and 3.")
+            while willyoutakeaweapon != "YES":
+                print("Yes Or No. Very Simple.")
+                willyoutakeaweapon = input("to advance you need to say yes or no!")
 
 
             print("as you are walking into your terminal you see a figure rush you") #intruder prompt
@@ -446,6 +461,8 @@ while character.Life == 1:
                 doors = doors -1
                 total = total + 1
                 score = score + 125
+            elif readit != "yes":
+                print("you choose not to read the message. good for you.")
 
 
         elif whichone == "7": #number picking game 
@@ -476,7 +493,7 @@ while character.Life == 1:
             print("Invalid Option. Please enter a number between one and seven.")
 
         
-        if total >= 7: #main ending 
+        if total >= 1: #main ending 
             print(finalefile.read())
             character.Life = character.Life - 1
 
