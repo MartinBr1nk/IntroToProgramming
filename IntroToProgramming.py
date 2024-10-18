@@ -1,6 +1,4 @@
 ﻿import os
-from telnetlib import WILL
-from tkinter import YES
 import time
 import random
 import achivements
@@ -501,11 +499,11 @@ while character.Life == 1:
                          score = score + 100
                          total = total + 1
                          guess = 1
+                         break
                 
                 except TypeError:
                     print("thats not a single whole number IDIOT")
-                else:
-                    pass
+             
         else:
             print("Invalid Option. Please enter a number between one and seven.")
 
