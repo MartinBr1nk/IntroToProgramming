@@ -504,7 +504,7 @@ while character.Life == 1:
             print("Invalid Option. Please enter a number between one and seven.")
 
         
-        if total >= 1: #main ending 
+        if total >= 7: #main ending 
             print(finalefile.read())
             character.Life = character.Life - 1
 
