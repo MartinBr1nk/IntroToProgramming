@@ -1,6 +1,12 @@
 ﻿import os
 from telnetlib import WILL
 from tkinter import YES
+import time
+import random
+import achivements
+import themasterplan
+from summonthegoose import release_the_geese
+from antigoosepiracy import goose_check
 finalefile=open("Finale Story.txt","r")
 
 print("Please Press F11 on your Keyboard To Maximise the experience. The System will Wait 10 Seconds.")
@@ -19,12 +25,6 @@ devmode = False
 
 door2 = False
 door3 = False
-import time
-import random
-import achivements
-import themasterplan
-from summonthegoose import release_the_geese
-from antigoosepiracy import goose_check
 
 def print_slow(str):
     for letter in str:
@@ -54,7 +54,9 @@ singitloud = themasterplan.masterplan
 easteregginoctober = achivements.creatorwithnameofuser
 netherdidithoughtwedgodown = achivements.weneedtogodeeper
 theendgoose = achivements.gooseending
-
+applecrumbleending = False
+cornettotrilogyending = False
+esculatordeath = False
 #Random
 
 #Ascii 
@@ -226,6 +228,7 @@ while character.Life == 1:
                             print("you notice there seems to be a worker sitting.")
                             littledoyouknow = input("do you wake him up?").upper()
 
+
                             while littledoyouknow != "YES":
                                 print("You dont have a choice. You said,",littledoyouknow,)
                                 littledoyouknow = input("let me ask you one more time. wake him up. Yes. Or. No.").upper()
@@ -241,8 +244,6 @@ while character.Life == 1:
                                 print("and so you get on and flick the lever but")
                                 print("no movement! you get off again")
                                 print("you decide to look around. you see a PSU.")
-                            if geton != "YES":
-                                print("You did not get on and because of this you have now died")
                                 turnon = input("turn on the PSU?").upper()
                                 if turnon == "YES" and devmode == True:
                                     print("DevMode On - Skipping Ascii Art")
@@ -288,6 +289,8 @@ while character.Life == 1:
                                           " that horrid place")
                                         character.Life = character.Life - 1
                                         score = score + 250
+                                        cornettotrilogyending = True
+                                        break
                                 
                                     elif shop == "goose": #one way to get good ending (goose ending)
                                         print("honk! thank you for your purchase, hes"
@@ -310,7 +313,8 @@ while character.Life == 1:
                                                 os.startfile("goose.mp3")
                                             elif goosesounds != "yes":
                                                 print("oh ok :(")
-                                            break
+                                        break
+                                         
                             
                                     elif shop == "apple crumble":
                                         print("you eat the apple crumble! it is very "
@@ -320,10 +324,12 @@ while character.Life == 1:
                                           " you are home! ")
                                         character.Life = character.Life - 1
                                         score = score + 200
-                                        break
+                                        applecrumbleending = True
+                                    break
 
                             elif esculator != "yes":
-                                print("your journey ends here noble agent.")
+                                print("dude you got death by esculator.")
+                                esculatordeath = True
                                 character.Life = character.Life - 1
                                 break
 
@@ -494,7 +500,7 @@ while character.Life == 1:
                          print("you did it in", youguess, "tries")
                          score = score + 100
                          total = total + 1
-                         guess = 0
+                         guess = 1
                 
                 except TypeError:
                     print("thats not a single whole number IDIOT")
@@ -511,13 +517,13 @@ while character.Life == 1:
         finalefile.close()
 
 print_slow("Systems Shutting Down....... \n")
-print("You Achieved, Coolname =", thecoolname , "singitloud = ",singingachievement, "goose ending = ",theendgoose)
+print("You Achieved, Coolname =", thecoolname , "singitloud = ",singingachievement, "goose ending = ",theendgoose, "going down", netherdidithoughtwedgodown, "apple crumble ending", applecrumbleending, "cornetto ending", cornettotrilogyending, "death by the esculator", esculatordeath)
 print("your score was", score)
 
 addtotheboard = input("would you like to add your name and score to the leaderboard?").upper()
 if addtotheboard == "YES":
     boardfile=open("Leaderboard.txt", "a")
-    boardfile.write(f"\n {character.Name} - score = {score} \n achievements are : Coolname {thecoolname}, Singitloud {singingachievement}, Goose Ending {theendgoose}",)
+    boardfile.write(f"\n {character.Name} - score = {score} \n achievements are : Coolname {thecoolname}, Singitloud {singingachievement}, Goose Ending {theendgoose}, going down {netherdidithoughtwedgodown}, esculatordeath {esculatordeath}, apple crumble ending {applecrumbleending}, cornetto ending, death by esculator {esculatordeath}",)
     boardfile.close()
     
     boardfile = open("Leaderboard.txt", "r")
