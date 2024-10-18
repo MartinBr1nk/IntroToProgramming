@@ -442,7 +442,7 @@ while character.Life == 1:
                 character.Life = character.Life - 1
             elif fighthim == "":
                 print("ah we have ourselves the silent type! prepare to die")
-                life = life - 1
+                character.Life = character.Life - 1
                 
 
         elif whichone == "5": #avoid taxes
