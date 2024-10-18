@@ -302,6 +302,12 @@ while character.Life == 1:
                                             theendgoose = True
                                             release_the_geese()
                                             score = score + 90053
+                                            goosesounds = input("listen to goose?")
+                                            if goosesounds == "yes":
+                                                print("goose time")
+                                                os.startfile("goose.mp3")
+                                            elif goosesounds != "yes":
+                                                print("oh ok :(")
                                             break
                             
                                     elif shop == "apple crumble":

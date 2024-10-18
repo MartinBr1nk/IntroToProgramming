@@ -9,3 +9,4 @@ def release_the_geese():
     os.startfile("Friendly Goose.png")
     os.startfile("Gallagher Goose.png")
     os.startfile("Old Goose.png")
+
