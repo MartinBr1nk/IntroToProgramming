@@ -1,8 +1,10 @@
 ﻿import os
 from telnetlib import WILL
 from tkinter import YES
-os.system('mode con: cols=129 lines=36')
 finalefile=open("Finale Story.txt","r")
+
+print("Please Press F11 on your Keyboard To Maximise the experience. The System will Wait 10 Seconds.")
+time.sleep(10)
 
 score = 0
 total = 0
@@ -41,7 +43,7 @@ class Player:
 character = Player("ToBeChanged", 1)
 character.Life = 1
 
-os.system('mode con: cols=250 lines=180')
+
 terminalbootup  = achivements.doster
 terminalbootup
 
@@ -102,7 +104,7 @@ print("Hello",character.Name,"You have been given the highest level of authority
 incomingmessage = input("incoming message - Origin HOMEBASE. Accept?").upper()
 message_loop = True
 while message_loop == True:
-    if incomingmessage == "YES":
+    if incomingmessage == "YES" or incomingmessage == "ACCEPT":
             message_loop = False
             print_slow("Connection Secured."
             " Greetings Agent, This is Captain C.Stephens. "
@@ -110,7 +112,7 @@ while message_loop == True:
             " Please follow the measures in the next transmission. "
             " CONNECTION TERMINATED ")
     
-    elif incomingmessage == "NO":
+    elif incomingmessage == "NO" or incomingmessage == "DENY":
             message_loop = False
             print("You hear a noise coming from above you." 
                   " Curious you leave the secure room and investigate, "
@@ -403,22 +405,25 @@ while character.Life == 1:
             total = total + 1
             print("you walk to the armory and decide you need a weapon")
             willyoutakeaweapon = input("will you take a weapon from the armoury?").upper()
-            if willyoutakeaweapon == "YES":
-                pickaweapon = input("pick a number between 1 and 3!")
-                if pickaweapon == "1":
-                    print("Aha! You have a medival broadsword! It has the" 
-                          " engravings - MB - Maybe someone of great importance and maybe not.")
-                elif pickaweapon =="2":
-                    print("you have an arm? Not of human origin but a microphone arm"
-                          ", it has a thick metal bottom which might be of great use")
-                elif pickaweapon == "3":
-                    print("you get a cricket bat! where are the zombies and fences to jump over.....")
-                while pickaweapon != "1" or pickaweapon != "2" or pickaweapon != "3":
-                    print("you kind of need a weapon...")
-                    pickaweapon = input("pick a weapon between 1 and 3.")
-            while willyoutakeaweapon != "YES":
-                print("Yes Or No. Very Simple.")
-                willyoutakeaweapon = input("to advance you need to say yes or no!")
+            while True:
+                if willyoutakeaweapon == "YES":
+                    pickaweapon = input("pick a number between 1 and 3!")
+                    if pickaweapon == "1":
+                        print("Aha! You have a medival broadsword! It has the" 
+                              " engravings - MB - Maybe someone of great importance and maybe not.")
+                        break
+                    elif pickaweapon =="2":
+                        print("you have an arm? Not of human origin but a microphone arm"
+                              ", it has a thick metal bottom which might be of great use")
+                        break
+                    elif pickaweapon == "3":
+                        print("you get a cricket bat! where are the zombies and fences to jump over.....")
+                        break
+                    else:
+                        print("there are only 3 weapons, are you seeing things?")
+                else:
+                    print("You kind of need a weapon...")
+                    willyoutakeaweapon = input("to advance you need to say yes or no!").upper()
 
 
             print("as you are walking into your terminal you see a figure rush you") #intruder prompt
