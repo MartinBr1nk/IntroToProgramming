@@ -67,6 +67,8 @@ goose_check()
 print("Terminal Assistant -Last Updated- Jan 24th 1963")
 character.Name= input("Input Agent Name ").upper()
 
+
+
 if character.Name =="":
     character.Name = "USER"
     print("no name inputted. USER Is Default Name")
@@ -120,23 +122,26 @@ while message_loop == True:
             print("skipping this dialogue.")
             devmode = True
         elif devname != "Martin":
-            print("wrong name detected. Please restart the system.")
+            message_loop = False
+            print("Dev Mode Unsuccessful. You Must Play the Game")
 
 
     else:
-        print("input invalid dummy")
+        print("Invalid Input Detected. ")
+
         incomingmessage = input("Accept or Deny the Intercom?").upper()
 while character.Life == 1:       
         print_slow("\nPlease Do the following in any order: \n") 
-        print("1. Lock All The Doors"
-              " 2. Harvest Crops" 
-              " 3. Initiate Oxygen Deprivation Protocol"
-              " 4. Lock The Armoury "
-              " 5. Avoid taxes "
-              " 6. Check Comms "
-              " 7. Play a Game! ")
+        print("1. Lock All The Doors \n"
+              " 2. Harvest Crops \n" 
+              " 3. Initiate Oxygen Deprivation Protocol \n"
+              " 4. Lock The Armoury \n"
+              " 5. Avoid taxes \n"
+              " 6. Check Comms \n"
+              " 7. Play a Game! \n")
         whichone = input ("what will you do first? enter any number")
         if whichone == "1":
+            total = total + 1
             while doors != 3:
                 pickadoor = input("what do you check first? Door 1, Door 2 or Door 3") #Prompt asking you which floor to go to
                 
@@ -175,134 +180,138 @@ while character.Life == 1:
                         
             
                 elif pickadoor == "1": #door 1/way to secret ending 
-                    print("Down the corridor you go! as you keep going down the corridor you contemplate whether you sing a little song or not.")
-                    sing = input("do you sing?")
-                    if sing =="yes":
-                        print("so you have decided to sing! so you sing the masterplan by oasis and you say:")
-                        print_slow(singitloud)
-                        singingachievement= True
-                    elif sing =="no" or sing =="":
-                        print("well. you are no fun.")
-                        print("mr boring man continues to walk down the hall.") 
-                        print("he then sees that there is only one door which is locked. ")
-                        print("He puts the keycard to the door and as he has been given the highest clearance is through.") #door down to true ending 
-                        youdidntsing = True
-                    print("you go down a set of stairs taking you back in time into a place which looks very dated.")
-                    floor = floor + 1942
-                    doors = doors + 1
-                    print("You are on an unknown floor. You try to see what floor you are at on the sign but it is illegible. ")
-                    print("The room looks like a train station ")
-                    iwantmymoneyback = input("do you go back upstairs or do you stay?").upper()
-                    if iwantmymoneyback == "LEAVE" or iwantmymoneyback =="":
-                        print("You decide to not do this and go upstairs because this is not worth your time")
-                        yougodown = True
-                        print(yougodown)
-                        floor = floor - 1942
-                        print("you are back on floor", floor)
-                        total = total + 1
+                    try:
+                        print("Down the corridor you go! as you keep going down the corridor you contemplate whether you sing a little song or not.")
+                        sing = input("do you sing?")
+                        if sing =="yes":
+                            print("so you have decided to sing! so you sing the masterplan by oasis and you say:")
+                            print_slow(singitloud)
+                            singingachievement= True
+                        elif sing != "yes":
+                            print("well. you are no fun.")
+                            print("mr boring man continues to walk down the hall.") 
+                            print("he then sees that there is only one door which is locked. ")
+                            print("He puts the keycard to the door and as he has been given the highest clearance is through.") #door down to true ending 
+                            youdidntsing = True
+                        print("you go down a set of stairs taking you back in time into a place which looks very dated.")
+                        floor = floor + 1942
+                        doors = doors + 1
+                        print("You are on an unknown floor. You try to see what floor you are at on the sign but it is illegible. ")
+                        print("The room looks like a train station ")
+                        iwantmymoneyback = input("do you go back upstairs or do you stay?").upper()
+                        if iwantmymoneyback != "STAY":
+                            print("You decide to not do this and go upstairs because this is not worth your time")
+                            yougodown = True
+                            print(yougodown)
+                            floor = floor - 1942
+                            print("you are back on floor", floor)
+                       
                    
 
-                    elif iwantmymoneyback == "STAY": 
-                        print("so you decided to venture forth!") 
-                        print("you are not the coward i thought you would be.")
-                        print("here you earned this achievement my treat.")
-                        netherdidithoughtwedgodown == True
-                        print("as you walk past this abandoned station")
-                        print("you notice there seems to be a worker sitting.")
-                        littledoyouknow = input("do you wake him up?").upper()
-                    else:
-                        print("you have inputted an incorrect value.")
-                        iwantmymoneyback = input("do you go back upstairs or do you stay?").upper()
+                        elif iwantmymoneyback == "STAY": 
+                            print("so you decided to venture forth!") 
+                            print("you are not the coward i thought you would be.")
+                            print("here you earned this achievement my treat.")
+                            netherdidithoughtwedgodown == True   
+                            print("as you walk past this abandoned station")
+                            print("you notice there seems to be a worker sitting.")
+                            littledoyouknow = input("do you wake him up?").upper()
 
-                        while littledoyouknow != "YES":
-                            print("You dont have a choice. You said,",littledoyouknow,)
-                            littledoyouknow = input("let me ask you one more time. wake him up. Yes. Or. No.").upper()
-                        print("He jolts awake in a cold sweat.")
-                        print("he seems rattled about where he is. ")
-                        print("there is also a lot of blood on the floor")
-                        print("he tells you things, interesting things. rouses")
-                        print("he also tells you that his favourite flavour of")
-                        print("oh wait no hes dead.")
-                        print("you then walk through more. you see a carriage")
+                            while littledoyouknow != "YES":
+                                print("You dont have a choice. You said,",littledoyouknow,)
+                                littledoyouknow = input("let me ask you one more time. wake him up. Yes. Or. No.").upper()
+                            print("He jolts awake in a cold sweat.")
+                            print("he seems rattled about where he is. ")
+                            print("there is also a lot of blood on the floor")
+                            print("he tells you things, interesting things. rouses")
+                            print("he also tells you that his favourite flavour of")
+                            print("oh wait no hes dead.")
+                            print("you then walk through more. you see a carriage")
+                            geton = input("get in carriage and go?").upper()
+                            if geton == "YES":
+                                print("and so you get on and flick the lever but")
+                                print("no movement! you get off again")
+                                print("you decide to look around. you see a PSU.")
+                                turnon = input("turn on the PSU?").upper()
+                                if turnon == "YES" and devmode == True:
+                                    print("DevMode On - Skipping Ascii Art")
+                                elif turnon == "YES":
+                                    print("BOOM ITS ON!")
+                                    print("you get back into the carriage and go")
+                                    print_slow("\n Weeeeeeeeeeeeeeeeeeeeeeeeeeeee \n")
+                                    print("and you are at your destination!")
+                                    print("it is this old midpoint between stations")
+                                    print_faster(tunnel)
+                            elif geton != "YES":
+                                print("You die because you did not want to"
+                                " get on the train and power it!")
+                                character.Life = character.Life - 1
+                            print("\n you walk through the station." 
+                                  "as you do you see "
+                                  "that there is a sort "
+                                  "of sign which says way out "
+                                  "so you then continue to walk down the corridor "
+                                  "which says way out on it and you see some "
+                                  "esculators. Do you go up them or no?")
+                            esculator = input("go up esculator?")
+                            if esculator == "yes": #ESCULATOR
+                                print("so you decide to go up the esculator! as"
+                                      " you continue up the esculator you see"
+                                      " many adverts from throughout the years"
+                                      " and then you get to the top of the esculator."
+                                      " when you step off the esculator there is a "
+                                      " shop. would you like to take some items?")
+                                shop=input("welcome to my shop! what do you want"
+                                           "i have cornettos, and a goose and"
+                                           "i also have an apple crumble")
+                                while shop != "cornetto" or shop != "goose" or shop != "apple crumble":
+                                    print("please pick from my shop!")
+                                    shop = input("Goose Cornetto or Apple Crumble!")
+                                    if shop == "cornetto":
+                                        print("good luck escaping those killers then..")
+                                        print(" and escape them you did. you ran,"
+                                          " ran and ran some more. until you"
+                                          " ended far far far away from"
+                                          " that horrid place")
+                                        character.Life = character.Life - 1
+                                        score = score + 250
+                                
+                                    elif shop == "goose": #one way to get good ending (goose ending)
+                                        print("honk! thank you for your purchase, hes"
+                                            " been driving me up the walls lately!")
+                                        inspectgoose = input(" care to inspect inspect my goose?")
+                                        if inspectgoose == "yes":
+                                            print("goose is big. 5ft with big wingspan"
+                                                  " very big and cool")
+                                            print("you put a saddle on the goose and"
+                                                  " you break out of the station and"
+                                               " you leave for pastures new.")
+                                            print("the gaggle is now reunited! :D")
+                                            character.Life = character.Life - 1
+                                            theendgoose = True
+                                            release_the_geese()
+                                            score = score + 90053
+                                            break
+                            
+                                    elif shop == "apple crumble":
+                                        print("you eat the apple crumble! it is very "
+                                          "tasty. it reminds you of home")
+                                        print("in wizard of oz style you close your eyes"
+                                          " and think of your home and then...."
+                                          " you are home! ")
+                                        character.Life = character.Life - 1
+                                        score = score + 200
+                                        break
 
-                        geton = input("get in carriage and go?").upper()
-                        if geton == "YES":
-                            print("and so you get on and flick the lever but")
-                            print("no movement! you get off again")
-                            print("you decide to look around. you see a PSU.")
-                            turnon = input("turn on the PSU?").upper()
-                            if turnon == "YES" and devmode == True:
-                                print("DevMode On - Skipping Ascii Art")
-                            elif turnon == "YES":
-                                print("BOOM ITS ON!")
-                                print("you get back into the carriage and go")
-                                print_slow("\n Weeeeeeeeeeeeeeeeeeeeeeeeeeeee \n")
-                                print("and you are at your destination!")
-                                print("it is this old midpoint between stations")
-                                print_faster(tunnel)
-                        elif geton == "NO" or geton == "":
-                            print("okay then, you die because"
-                            " you dont want to play my game!")
-                            character.Life = character.Life - 1
-                        print("\n you walk through the station." 
-                              "as you do you see "
-                              "that there is a sort "
-                              "of sign which says way out "
-                              "so you then continue to walk down the corridor "
-                              "which says way out on it and you see some "
-                              "esculators. Do you go up them or no?")
-                        esculator = input("go up esculator?")
-                        if esculator == "yes": #ESCULATOR
-                            print("so you decide to go up the esculator! as"
-                                  " you continue up the esculator you see"
-                                  " many adverts from throughout the years"
-                                  " and then you get to the top of the esculator."
-                                  " when you step off the esculator there is a "
-                                  " shop. would you like to take some items?")
-                            shop=input("welcome to my shop! what do you want"
-                                       "i have cornettos, and a goose and"
-                                       "i also have an apple crumble")
-                            if shop == "cornetto":
-                                print("good luck escaping those killers then..")
-                                print(" and escape them you did. you ran,"
-                                      " ran and ran some more. until you"
-                                      " ended far far far away from"
-                                      " that horrid place")
+                            elif esculator != "yes":
+                                print("your journey ends here noble agent.")
                                 character.Life = character.Life - 1
-                                score = score + 250
-                            
-                            elif shop == "goose": #one way to get good ending (goose ending)
-                                print("honk! thank you for your purchase, hes"
-                                      " been driving me up the walls lately!")
-                                inspectgoose = input(" care to inspect inspect my goose?")
-                                if inspectgoose == "yes":
-                                    print("goose is big. 5ft with big wingspan"
-                                          " very big and cool")
-                                    print("you put a saddle on the goose and"
-                                          " you break out of the station and"
-                                          " you leave for pastures new.")
-                                    print("the gaggle is now reunited! :D")
-                                    character.Life = character.Life - 1
-                                    theendgoose = True
-                                    release_the_geese()
-                                    score = score + 90053
-                                    break
-                            
-                            elif shop == "apple crumble":
-                                print("you eat the apple crumble! it is very "
-                                      "tasty. it reminds you of home")
-                                print("in wizard of oz style you close your eyes"
-                                      " and think of your home and then...."
-                                      " you are home! ")
-                                character.Life = character.Life - 1
-                                score = score + 200
                                 break
 
-                        elif esculator != "yes":
-                            print("your journey ends here noble agent.")
-                            character.Life = character.Life - 1
-                            break
+                    except TypeError:
+                           print("please add a valid input")
 
+                           
                 elif pickadoor == "2" and door2 == True:
                     print("you cannot go here! you have been here before")
 
@@ -354,6 +363,7 @@ while character.Life == 1:
                     harvestmoon = input("keep harvesting or press 0 to stop").upper()
 
         elif whichone == "3": #lockdown protocol if you dont put on the respirator you die
+            total = total + 1
             lockthatdown=input("Please Enter your Name to Initiate Lockdown Protocol").upper()
             if lockthatdown == character.Name:
                 print("Oxygen Deprivation Protocol has Started.")
@@ -361,19 +371,20 @@ while character.Life == 1:
                 print_faster(lockallthedoorsmaybewellneverfindit)
             elif lockthatdown != character.Name:
                 print("Lockdown cancelled.")
-                total = total + 1
+                
 
             if lockdownprotocol == True:
                 lifeordeath = input("do you put on your respirator?").upper() #respirator
                 if lifeordeath == "YES":
                     print("you are now breathing from the respirator. ")
-                elif lifeordeath == "NO":
+                elif lifeordeath != "YES":
                     print("you start to feel light headed and suddenly, nothing.") 
                     print("You have passed out and in that time you have died.")
                     character.Life=character.Life -1
                     print_slow("Logging off - User Has Died")
         
         elif whichone == "4": #armory with prompt to fight an "intruder"
+            total = total + 1
             print("you walk to the armory and decide you need a weapon")
             willyoutakeaweapon = input("will you take a weapon from the armoury?").upper()
             if willyoutakeaweapon == "YES":
@@ -393,15 +404,12 @@ while character.Life == 1:
             fighthim = input("do you fight the figure?")
             if fighthim == "yes" and pickaweapon == "1":
                 print("you behead the intruder and spill his guts out")
-                total = total + 1
             elif fighthim == "yes" and pickaweapon == "2":
                 print("he runs towards you at a speed, you then hit him"
                       " he is then stone cold and you then finish the job")
-                total + 1
             elif fighthim == "yes" and pickaweapon == "3":
                 print("in true style you hit him repeatedly until he falls"
                       "strange too because im sure i heard dont stop me now....")
-                total = total + 1
                 score = score + 650
             elif fighthim == "no":
                 print("oh so your a pacifist? yeah no you're dead")
@@ -423,7 +431,7 @@ while character.Life == 1:
         elif whichone == "6" and yougodown ==False: #checking if you went back up instead of doing the secret ending
             print("welcome to the message hub")
             print("you have no new messages")
-            total + 1
+            total = total + 1
         
         elif whichone == "6" and yougodown == True: #same as above
             print("you have a new message! Message from 2 mins ago.")
@@ -436,7 +444,7 @@ while character.Life == 1:
                 print("go down to the bottom of those steps. ")
                 print("there you can escape. godspeed",character.Name,".")
                 doors = doors -1
-                total + 1
+                total = total + 1
                 score = score + 125
 
 
